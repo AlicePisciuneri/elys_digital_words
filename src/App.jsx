@@ -1,16 +1,7 @@
-//import { useState } from 'react'//
-
-
+import HomePage from './pages/HomePage'
 
 function App() {
-
-  return (
-    <>
-      <h1>Elys Digital Words</h1>
-      <p>Sito Portfolio work in progress</p>
-    </>
-  )
+  return <HomePage />
 }
-
 
 export default App
