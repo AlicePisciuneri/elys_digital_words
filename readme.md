@@ -1,16 +1,39 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Elys Digital Words
 
-Currently, two official plugins are available:
+Un portfolio personale in costruzione, pensato per raccogliere in un unico spazio il mio percorso nel digitale e il mio lavoro di redattrice.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Questo progetto nasce con un doppio obiettivo: creare una presenza online che mi rappresenti davvero e riprendere a scrivere codice in modo concreto, passo dopo passo.
 
-## React Compiler
+## Obiettivo
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Realizzare un sito portfolio con React, HTML e CSS, con una parte dedicata al profilo digitale e una parte dedicata al lavoro editoriale.
 
-## Expanding the ESLint configuration
+## Sezioni previste
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- presentazione personale
+- area digitale
+- area redattrice
+- contatti
+- link a progetti e profili professionali
+- diario di bordo del progetto
+
+## Tecnologie previste
+
+- HTML
+- CSS
+- React
+- Node.js
+- Express
+
+## Stato attuale
+
+Work in progress.
+
+## Avanzamento attuale
+
+- creazione della repository GitHub
+- avvio del progetto con Vite e React
+- rimozione del template iniziale di Vite dalla homepage
+- creazione della prima schermata personalizzata
