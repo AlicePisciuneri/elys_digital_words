@@ -1,5 +1,6 @@
 import heroBackground from '../assets/hero-background.png'
 import profilePhoto from '../assets/profilephoto.png'
+import { FaGithub, FaLinkedinIn, FaEnvelope } from 'react-icons/fa'
 
 function HomePage() {
     return (
@@ -29,7 +30,7 @@ function HomePage() {
                         <div className="about-text">
                             <h2>Chi sono</h2>
                             <p>
-                                Sto costruendo un percorso che unisce competenze digitali,
+                                Mi chiamo Alice e sto costruendo un percorso che unisce competenze digitali,
                                 scrittura e progettazione di contenuti.
                             </p>
 
@@ -72,11 +73,42 @@ function HomePage() {
                             <li>Presentazione chiara di progetti e identità digitali</li>
                         </ul>
                     </section>
+                    <footer className="site-footer">
+                        <div className="footer-content">
+                            <h2 className="footer-title">Restiamo in contatto</h2>
 
-                    <section className="section contact-box">
-                        <h2>Contatti</h2>
-                        <p>GitHub, email e link professionali arriveranno qui.</p>
-                    </section>
+                            <div className="footer-icons">
+                                <a
+                                    href="https://github.com/AlicePisciuneri"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="GitHub"
+                                >
+                                    <FaGithub />
+                                </a>
+
+                                <a
+                                    href="https://www.linkedin.com/in/alice-pisciuneri-b55275344/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="LinkedIn"
+                                >
+                                    <FaLinkedinIn />
+                                </a>
+
+                                <a
+                                    href="mailto:alice.corleto@libero.it"
+                                    aria-label="Email"
+                                >
+                                    <FaEnvelope />
+                                </a>
+                            </div>
+
+                            <p className="footer-note">
+                                Elys Digital Words · Web, scrittura e visione editoriale
+                            </p>
+                        </div>
+                    </footer>
                 </main>
             </div>
         </>
