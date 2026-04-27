@@ -35,8 +35,15 @@ Work in progress.
 - avvio del progetto con Vite e React
 - rimozione del template iniziale di Vite dalla homepage
 - creazione della prima schermata personalizzata
+- creazione della struttura iniziale con `App.jsx` e `HomePage.jsx`
+- inserimento di una hero section con immagine di sfondo
+- aggiunta della sezione `Chi sono` con foto profilo
+- creazione di un footer con contatti e icone social
+
 ## Struttura attuale
 
 - `src/App.jsx`
 - `src/pages/HomePage.jsx`
 - `src/index.css`
+- `src/assets/hero-background.png`
+- `src/assets/profilephoto.png`
