@@ -35,3 +35,8 @@ Work in progress.
 - avvio del progetto con Vite e React
 - rimozione del template iniziale di Vite dalla homepage
 - creazione della prima schermata personalizzata
+## Struttura attuale
+
+- `src/App.jsx`
+- `src/pages/HomePage.jsx`
+- `src/index.css`
