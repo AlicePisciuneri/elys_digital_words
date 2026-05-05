@@ -46,8 +46,8 @@ function HomePage() {
                             </p>
                         </div>
                     </section>
-
-                    <section className="section two-columns">
+                    <section className="section two-columns dual-section">
+                        <p className="section-eyebrow">Due direzioni, un solo percorso</p>
                         <article className="card">
                             <h2>Digitale</h2>
                             <p>

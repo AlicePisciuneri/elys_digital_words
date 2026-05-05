@@ -257,3 +257,42 @@ body {
   font-size: 15px;
   color: #4d4d4d;
 }
+
+.dual-section {
+  margin-top: 30px;
+  padding: 40px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #16181d 0%, #1f2430 100%);
+  color: #f7f4ef;
+}
+
+.section-eyebrow {
+  width: 100%;
+  margin-bottom: 24px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #c7b8ff;
+}
+
+.dual-section .card {
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(4px);
+  color: #f7f4ef;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.dual-section .card h2 {
+  margin-bottom: 14px;
+  color: #ffffff;
+}
+
+.dual-section .card p {
+  color: #d7dbe3;
+}
+
+.dual-section .card:hover {
+  transform: translateY(-4px);
+  transition: transform 0.25s ease;
+}
