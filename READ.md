@@ -6,24 +6,25 @@ Questo progetto nasce con un doppio obiettivo: creare una presenza online che mi
 
 ## Obiettivo
 
-Realizzare un sito portfolio con React, HTML e CSS, con una parte dedicata al profilo digitale e una parte dedicata al lavoro editoriale.
+Realizzare un sito portfolio con React che unisca profilo digitale, scrittura, contenuti editoriali e identità visiva in una struttura più contemporanea e personale.
 
-## Sezioni previste
+## Direzione attuale del progetto
 
-- presentazione personale
-- area digitale
-- area redattrice
-- contatti
-- link a progetti e profili professionali
-- diario di bordo del progetto
+Dopo una prima fase più classica, il progetto è stato ripensato con una nuova impostazione visiva:
+- estetica dark
+- layout modulare a colonne
+- struttura ispirata a una pagina profilo più viva e dinamica
+- card dedicate a profilo, progetti tech e articoli
 
-## Tecnologie previste
+L’obiettivo non è più costruire una semplice vetrina portfolio, ma una presenza digitale più sfaccettata, vicina a un ecosistema personale.
+
+## Tecnologie usate finora
 
 - HTML
-- CSS
 - React
-- Node.js
-- Express
+- Vite
+- Tailwind CSS
+- React Icons
 
 ## Stato attuale
 
@@ -32,18 +33,22 @@ Work in progress.
 ## Avanzamento attuale
 
 - creazione della repository GitHub
-- avvio del progetto con Vite e React
-- rimozione del template iniziale di Vite dalla homepage
-- creazione della prima schermata personalizzata
-- creazione della struttura iniziale con `App.jsx` e `HomePage.jsx`
-- inserimento di una hero section con immagine di sfondo
-- aggiunta della sezione `Chi sono` con foto profilo
-- creazione di un footer con contatti e icone social
+- avvio iniziale del progetto con Vite e React
+- prime prove di struttura classica della homepage
+- revisione completa del concept visivo
+- passaggio a Tailwind CSS
+- costruzione di una nuova homepage dark
+- creazione della colonna profilo centrale con immagine, bio e icone social
+- creazione della colonna progetti tech
+- inserimento delle prime article card cliccabili
 
 ## Struttura attuale
 
 - `src/App.jsx`
-- `src/pages/HomePage.jsx`
 - `src/index.css`
-- `src/assets/hero-background.png`
-- `src/assets/profilephoto.png`
+- `public/profile-preview.png`
+- `public/calligrafe-articolo-1.jpg`
+
+## Nota
+
+Il progetto è in continua evoluzione e viene aggiornato per step, sia nella parte visiva sia nella struttura dei contenuti.
