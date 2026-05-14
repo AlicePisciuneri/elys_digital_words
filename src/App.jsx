@@ -4,57 +4,75 @@ import {
   FaGithub,
 } from 'react-icons/fa'
 import { SiSubstack } from 'react-icons/si'
+const projects = [
+  {
+    title: 'Landing page per insegnante di inglese',
+    href: '/english-teacher',
+    color:
+      'border-violet-400/20 bg-violet-400/10 text-zinc-100 hover:bg-violet-400/15',
+  },
+  {
+    title: 'Vendita brani royalty-free per musicista',
+    href: '/music-project',
+    color:
+      'border-fuchsia-400/20 bg-fuchsia-400/10 text-zinc-100 hover:bg-fuchsia-400/15',
+  },
+  {
+    title: 'Sito WordPress per progetto agricolo',
+    href: '/agricultural-site',
+    color:
+      'border-cyan-400/20 bg-cyan-400/10 text-zinc-100 hover:bg-cyan-400/15',
+  },
+]
+
+function ProjectLink({ project }) {
+  return (
+    <a
+      href={project.href}
+      className={`rounded-2xl border px-4 py-4 text-sm transition hover:-translate-y-0.5 ${project.color}`}
+    >
+      {project.title}
+    </a>
+  )
+}
+function Card({ children, className = '', isDashed = false }) {
+  return (
+    <section
+      className={`rounded-[28px] border ${isDashed ? 'border-dashed border-white/10' : 'border-white/10'
+        } bg-white/5 p-5 backdrop-blur-sm ${className}`}
+    >
+      {children}
+    </section>
+  )
+}
 
 function App() {
   return (
     <div className="min-h-screen bg-[#07090d] px-4 py-6 text-white md:px-6">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 lg:grid-cols-[340px_520px] lg:justify-center">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 lg:grid-cols-[340px_520px_320px] lg:justify-center">
         <aside className="lg:self-start">
-          <section className="rounded-[28px] border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
+          <Card className="shadow-[0_0_30px_rgba(168,85,247,0.12)]">
             <p className="mb-4 text-5xl font-semibold leading-none text-white">
               {'{ }'}
             </p>
 
             <p className="mb-4 text-xs uppercase tracking-[0.3em] text-zinc-400">
-              Tech Projects
+              Scopri cosa ho già realizzato
             </p>
 
             <div className="flex flex-col gap-3">
-              <a
-                href="https://github.com/AlicePisciuneri"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm text-zinc-200 transition hover:-translate-y-0.5 hover:bg-white/10"
-              >
-                React Portfolio
-              </a>
-
-              <a
-                href="https://github.com/AlicePisciuneri"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm text-zinc-200 transition hover:-translate-y-0.5 hover:bg-white/10"
-              >
-                Task Manager
-              </a>
-
-              <a
-                href="https://github.com/AlicePisciuneri"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm text-zinc-200 transition hover:-translate-y-0.5 hover:bg-white/10"
-              >
-                WordPress Project
-              </a>
+              {projects.map((project) => (
+                <ProjectLink key={project.title} project={project} />
+              ))}
             </div>
-          </section>
+          </Card>
         </aside>
 
         <div className="flex flex-col gap-4">
-          <section className="rounded-[28px] border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
+          <Card className="rounded-[28px] border border-white/10 bg-white/5 p-5 backdrop-blur-sm shadow-[0_0_30px_rgba(168,85,247,0.12)]">
             <div className="flex gap-4">
               <div className="flex-1">
-                <div className="mb-3 flex items-center gap-3">
+                <div className="mb-4 flex items-center gap-3">
                   <img
                     src="/profile-preview.png"
                     alt="Foto profilo Alice"
@@ -63,17 +81,13 @@ function App() {
 
                   <div>
                     <h1 className="text-3xl font-semibold leading-tight">
-                      Alice
+                      alice.digitalwords
                     </h1>
-                    <p className="text-base text-zinc-400">
-                      @elysdigitalwords
-                    </p>
                   </div>
                 </div>
 
-                <p className="max-w-xs text-lg leading-9 text-zinc-300">
-                  Web, scrittura e visione editoriale. Uno spazio personale
-                  pensato per unire identità digitale, contenuti e progetti.
+                <p className="max-w-md text-lg leading-8 text-zinc-300">
+                  Progetto spazi digitali che uniscono struttura, contenuti e identità visiva per aiutare freelance, professionisti e piccole attività a presentarsi meglio online e trasformare il traffico in contatti concreti..
                 </p>
               </div>
 
@@ -82,15 +96,16 @@ function App() {
                   href="https://www.instagram.com/elysinbookland"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Visita il mio profilo Instagram"
                   className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/90 transition hover:bg-white"
                 >
                   <FaInstagram className="text-[#E1306C]" />
                 </a>
-
                 <a
                   href="https://www.linkedin.com/in/alice-pisciuneri-b55275344/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Linkedin"
                   className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/90 transition hover:bg-white"
                 >
                   <FaLinkedinIn className="text-[#0A66C2]" />
@@ -100,6 +115,7 @@ function App() {
                   href="https://github.com/AlicePisciuneri"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Il mio GitHub"
                   className="flex h-12 w-12 items-center justify-center rounded-xl bg-black transition hover:bg-zinc-800"
                 >
                   <FaGithub className="text-white" />
@@ -109,37 +125,53 @@ function App() {
                   href="https://substack.com"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Substack"
                   className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/90 transition hover:bg-white"
                 >
                   <SiSubstack className="text-[#FF6719]" />
                 </a>
               </div>
             </div>
-          </section>
+          </Card>
 
-          <section className="rounded-[28px] border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
+          <Card className="rounded-[28px] border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
             <p className="mb-4 text-xs uppercase tracking-[0.3em] text-zinc-400">
-              Daily Road Map
+              Cosa costruisco
             </p>
 
             <div className="grid grid-cols-2 gap-3">
               <div className="rounded-2xl bg-white/5 p-4 text-base text-zinc-200">
-                VS Code
+                Landing page
               </div>
               <div className="rounded-2xl bg-white/5 p-4 text-base text-zinc-200">
-                React
+                Siti vetrina
               </div>
               <div className="rounded-2xl bg-white/5 p-4 text-base text-zinc-200">
-                WordPress
+                Contenuti digitali
               </div>
               <div className="rounded-2xl bg-white/5 p-4 text-base text-zinc-200">
-                GitHub
+                Presenza online e social
               </div>
             </div>
-          </section>
-          <section className="rounded-[28px] border border-dashed border-white/10 bg-white/5 p-5 backdrop-blur-sm">
+          </Card>
+
+          <Card className="rounded-[28px] border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
+            <p className="mb-4 text-xs uppercase tracking-[0.3em] text-zinc-400">
+              Cosa offro
+            </p>
+
+            <p className="text-base leading-8 text-zinc-300">
+              Uno spazio digitale che non siano solo ordinato o
+              bello da vedere, ma capace di guidare chi arriva, generare fiducia e
+              trasformare l’attenzione in un contatto reale. Per questo lavoro sul
+              rapporto tra struttura, copy, identità visiva, UX/UI e chiarezza del
+              messaggio.
+            </p>
+          </Card>
+
+          <Card className="rounded-[28px] border border-dashed border-white/10 bg-white/5 p-5 backdrop-blur-sm">
             <p className="mb-3 text-xs uppercase tracking-[0.3em] text-zinc-400">
-              Potrebbe interessarti...
+              Se scrivi o lavori o sui social ti potrebbe interessare...
             </p>
 
             <a
@@ -164,25 +196,57 @@ function App() {
                 </h3>
 
                 <p className="text-sm leading-6 text-zinc-300">
-                  C’è una scena, quasi alla fine di questo atteso sequel de Il Diavolo veste Prada,
-                  che si svolge nel silenzio sacro del refettorio di Santa Maria delle Grazie a Milano, davanti all’Ultima Cena di Leonardo. In quel punto il film smette di essere una commedia sulla moda e si rivela per quello che è veramente: un “quasi” trattato politico sulla fine di un’era. Se il primo capitolo era una lezione di estetica, il secondo è una guerra di successione per il futuro dell’umanità e, al centro di questa guerra,
-                  c’è ancora lei, la nostra Andy Sachs. Ma non è più la ragazza che abbiamo lasciato vent’anni fa. Prima di parlare di questo, però, dobbiamo fare un passo indietro… </p>
+                  Un esempio del mio lato editoriale: analisi culturale, sguardo
+                  narrativo e costruzione di contenuti con un’identità precisa.
+                </p>
               </div>
             </a>
-          </section>
+          </Card>
 
-          <section className="rounded-[28px] border border-dashed border-white/10 bg-white/5 p-5 backdrop-blur-sm">
+          <Card className="rounded-[28px] border border-dashed border-white/10 bg-white/5 p-5 backdrop-blur-sm">
             <p className="mb-3 text-xs uppercase tracking-[0.3em] text-zinc-400">
-              Potrebbe interessarti...
+              Work in progress
             </p>
 
             <div className="flex h-64 items-center justify-center rounded-2xl border border-dashed border-white/10 text-sm text-zinc-500">
-              Qui andrà l’immagine-link del secondo articolo
+              Qui andrà un futuro caso studio o un’altra article card
             </div>
-          </section>
+          </Card>
         </div>
+
+        <aside className="lg:self-start">
+          <a
+            href="/eragon.jpg"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block overflow-hidden rounded-[28px] border border-white/10 bg-white/5 p-4 backdrop-blur-sm transition hover:-translate-y-1 hover:bg-white/10"
+          >
+            <img
+              src="/eragon.jpg"
+              alt="Grafica dedicata a Eragon"
+              className="mb-4 max-h-[500px] w-full rounded-[22px] object-contain"
+            />
+
+            <p className="mb-2 text-xs uppercase tracking-[0.3em] text-zinc-400">
+              Visual storytelling
+            </p>
+
+            <h2 className="mb-3 text-xl font-semibold leading-tight text-white">
+              Come nascono queste grafiche?
+            </h2>
+
+            <p className="text-sm leading-6 text-zinc-300">
+              Un piccolo spazio per raccontare il lato visivo dei miei contenuti:
+              immagini, idee, atmosfera e qualche segreto di lavorazione.
+            </p>
+
+            <p className="mt-3 text-xs uppercase tracking-[0.2em] text-zinc-500">
+              Clicca per ingrandire
+            </p>
+          </a>
+        </aside>
       </div>
-    </div>
+    </div >
   )
 }
 
