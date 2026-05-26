@@ -4,6 +4,9 @@ import {
   FaGithub,
 } from 'react-icons/fa'
 import { SiSubstack } from 'react-icons/si'
+import { Routes, Route, Link, Navigate } from 'react-router-dom'
+import EnglishTeacherPage from './pages/EnglishTeacherPage'
+
 const projects = [
   {
     title: 'Landing page per insegnante di inglese',
@@ -27,14 +30,15 @@ const projects = [
 
 function ProjectLink({ project }) {
   return (
-    <a
-      href={project.href}
+    <Link
+      to={project.href}
       className={`rounded-2xl border px-4 py-4 text-sm transition hover:-translate-y-0.5 ${project.color}`}
     >
       {project.title}
-    </a>
+    </Link>
   )
 }
+
 function Card({ children, className = '', isDashed = false }) {
   return (
     <section
@@ -46,7 +50,21 @@ function Card({ children, className = '', isDashed = false }) {
   )
 }
 
-function App() {
+function WorkInProgressPage() {
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center bg-[#07090d] p-4 text-white">
+      <h2 className="mb-4 text-2xl font-semibold">Progetto in arrivo!</h2>
+      <p className="mb-6 text-zinc-400">
+        Sto sistemando gli ultimi dettagli di questo caso studio.
+      </p>
+      <Link to="/" className="text-violet-400 hover:underline">
+        Torna alla Home
+      </Link>
+    </div>
+  )
+}
+
+function HomePage() {
   return (
     <div className="min-h-screen bg-[#07090d] px-4 py-6 text-white md:px-6">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 lg:grid-cols-[340px_520px_320px] lg:justify-center">
@@ -69,7 +87,7 @@ function App() {
         </aside>
 
         <div className="flex flex-col gap-4">
-          <Card className="rounded-[28px] border border-white/10 bg-white/5 p-5 backdrop-blur-sm shadow-[0_0_30px_rgba(168,85,247,0.12)]">
+          <Card className="shadow-[0_0_30px_rgba(168,85,247,0.12)]">
             <div className="flex gap-4">
               <div className="flex-1">
                 <div className="mb-4 flex items-center gap-3">
@@ -87,7 +105,10 @@ function App() {
                 </div>
 
                 <p className="max-w-md text-lg leading-8 text-zinc-300">
-                  Progetto spazi digitali che uniscono struttura, contenuti e identità visiva per aiutare freelance, professionisti e piccole attività a presentarsi meglio online e trasformare il traffico in contatti concreti..
+                  Progetto spazi digitali che uniscono struttura, contenuti e
+                  identità visiva per aiutare freelance, professionisti e
+                  piccole attività a presentarsi meglio online e trasformare il
+                  traffico in contatti concreti.
                 </p>
               </div>
 
@@ -101,11 +122,12 @@ function App() {
                 >
                   <FaInstagram className="text-[#E1306C]" />
                 </a>
+
                 <a
                   href="https://www.linkedin.com/in/alice-pisciuneri-b55275344/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Linkedin"
+                  aria-label="Visita il mio profilo LinkedIn"
                   className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/90 transition hover:bg-white"
                 >
                   <FaLinkedinIn className="text-[#0A66C2]" />
@@ -115,7 +137,7 @@ function App() {
                   href="https://github.com/AlicePisciuneri"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Il mio GitHub"
+                  aria-label="Visita il mio profilo GitHub"
                   className="flex h-12 w-12 items-center justify-center rounded-xl bg-black transition hover:bg-zinc-800"
                 >
                   <FaGithub className="text-white" />
@@ -125,7 +147,7 @@ function App() {
                   href="https://substack.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Substack"
+                  aria-label="Visita il mio profilo Substack"
                   className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/90 transition hover:bg-white"
                 >
                   <SiSubstack className="text-[#FF6719]" />
@@ -134,7 +156,7 @@ function App() {
             </div>
           </Card>
 
-          <Card className="rounded-[28px] border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
+          <Card>
             <p className="mb-4 text-xs uppercase tracking-[0.3em] text-zinc-400">
               Cosa costruisco
             </p>
@@ -155,23 +177,21 @@ function App() {
             </div>
           </Card>
 
-          <Card className="rounded-[28px] border border-white/10 bg-white/5 p-5 backdrop-blur-sm">
+          <Card>
             <p className="mb-4 text-xs uppercase tracking-[0.3em] text-zinc-400">
               Cosa offro
             </p>
 
             <p className="text-base leading-8 text-zinc-300">
-              Uno spazio digitale che non siano solo ordinato o
-              bello da vedere, ma capace di guidare chi arriva, generare fiducia e
-              trasformare l’attenzione in un contatto reale. Per questo lavoro sul
-              rapporto tra struttura, copy, identità visiva, UX/UI e chiarezza del
-              messaggio.
+              Uno spazio digitale che non sia solo ordinato o bello da vedere,
+              ma capace di guidare chi arriva, generare fiducia e trasformare
+              l’attenzione in un contatto reale.
             </p>
           </Card>
 
-          <Card className="rounded-[28px] border border-dashed border-white/10 bg-white/5 p-5 backdrop-blur-sm">
+          <Card isDashed>
             <p className="mb-3 text-xs uppercase tracking-[0.3em] text-zinc-400">
-              Se scrivi o lavori o sui social ti potrebbe interessare...
+              Se scrivi o lavori sui social ti potrebbe interessare...
             </p>
 
             <a
@@ -192,18 +212,20 @@ function App() {
                 </p>
 
                 <h3 className="mb-2 text-lg font-semibold text-white">
-                  Il diavolo veste ancora Prada: un trattato sulla fine di un’era
+                  Il diavolo veste ancora Prada: un trattato sulla fine di
+                  un’era
                 </h3>
 
                 <p className="text-sm leading-6 text-zinc-300">
-                  Un esempio del mio lato editoriale: analisi culturale, sguardo
-                  narrativo e costruzione di contenuti con un’identità precisa.
+                  Un esempio del mio lato editoriale: analisi culturale,
+                  sguardo narrativo e costruzione di contenuti con un’identità
+                  precisa.
                 </p>
               </div>
             </a>
           </Card>
 
-          <Card className="rounded-[28px] border border-dashed border-white/10 bg-white/5 p-5 backdrop-blur-sm">
+          <Card isDashed>
             <p className="mb-3 text-xs uppercase tracking-[0.3em] text-zinc-400">
               Work in progress
             </p>
@@ -216,14 +238,14 @@ function App() {
 
         <aside className="lg:self-start">
           <a
-            href="/eragon.jpg"
+            href="/elys.jpg"
             target="_blank"
             rel="noopener noreferrer"
             className="block overflow-hidden rounded-[28px] border border-white/10 bg-white/5 p-4 backdrop-blur-sm transition hover:-translate-y-1 hover:bg-white/10"
           >
             <img
-              src="/eragon.jpg"
-              alt="Grafica dedicata a Eragon"
+              src="/elys.jpg"
+              alt="Grafica visuale di Elys"
               className="mb-4 max-h-[500px] w-full rounded-[22px] object-contain"
             />
 
@@ -236,8 +258,9 @@ function App() {
             </h2>
 
             <p className="text-sm leading-6 text-zinc-300">
-              Un piccolo spazio per raccontare il lato visivo dei miei contenuti:
-              immagini, idee, atmosfera e qualche segreto di lavorazione.
+              Un piccolo spazio per raccontare il lato visivo dei miei
+              contenuti: immagini, idee, atmosfera e qualche segreto di
+              lavorazione.
             </p>
 
             <p className="mt-3 text-xs uppercase tracking-[0.2em] text-zinc-500">
@@ -246,7 +269,19 @@ function App() {
           </a>
         </aside>
       </div>
-    </div >
+    </div>
+  )
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/english-teacher" element={<EnglishTeacherPage />} />
+      <Route path="/music-project" element={<WorkInProgressPage />} />
+      <Route path="/agricultural-site" element={<WorkInProgressPage />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
   )
 }
 
