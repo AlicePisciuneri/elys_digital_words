@@ -68,7 +68,7 @@ function HomePage() {
   return (
     <div className="min-h-screen bg-[#07090d] px-4 py-6 text-white md:px-6">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 lg:grid-cols-[340px_520px_320px] lg:justify-center">
-        <aside className="lg:self-start">
+        <aside className="order-2 lg:order-1 lg:self-start">
           <Card className="shadow-[0_0_30px_rgba(168,85,247,0.12)]">
             <p className="mb-4 text-5xl font-semibold leading-none text-white">
               {'{ }'}
@@ -85,8 +85,7 @@ function HomePage() {
             </div>
           </Card>
         </aside>
-
-        <div className="flex flex-col gap-4">
+        <div className="order-1 flex flex-col gap-4 lg:order-2">
           <Card className="shadow-[0_0_30px_rgba(168,85,247,0.12)]">
             <div className="flex gap-4">
               <div className="flex-1">
@@ -235,8 +234,7 @@ function HomePage() {
             </div>
           </Card>
         </div>
-
-        <aside className="lg:self-start">
+        <aside className="order-3 lg:order-3 lg:self-start">
           <a
             href="/elys.jpg"
             target="_blank"
