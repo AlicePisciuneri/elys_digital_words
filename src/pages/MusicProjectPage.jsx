@@ -1,6 +1,14 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
+const projectMetrics = {
+    youtubeViews28Days: "5.626",
+    youtubeViews48Hours: "695",
+    instagramReach: "1.240",
+    websiteVisits: "327",
+    lastUpdate: "24 giugno 2026",
+};
+
 function MusicProjectPage() {
     return (
         <div className="min-h-screen bg-[#07090d] px-6 py-10 text-white md:px-10 lg:px-16">
@@ -171,95 +179,37 @@ function MusicProjectPage() {
                         </div>
                     </div>
                 </motion.section>
-
-                <motion.section
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.7, delay: 0.3 }}
-                    className="mb-20"
-                >
+                <section className="my-20">
                     <p className="mb-3 text-xs uppercase tracking-[0.3em] text-zinc-500">
-                        Cosa ho fatto
+                        Metriche del progetto
                     </p>
 
-                    <h2 className="mb-6 text-3xl font-semibold">
-                        Struttura, gerarchia e atmosfera
+                    <h2 className="mb-8 text-4xl font-semibold text-violet-300">
+                        Crescita monitorata nel tempo
                     </h2>
 
-                    <div className="grid gap-8 lg:grid-cols-3">
-                        <div className="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-                            <h3 className="mb-4 text-xl font-semibold">Struttura</h3>
-                            <p className="text-zinc-300 leading-7">
-                                Ho lavorato sulla costruzione della pagina per dare un ordine più
-                                chiaro ai contenuti e rendere immediata la lettura del progetto.
-                            </p>
+                    <div className="grid gap-6 md:grid-cols-3">
+                        <div>
+                            <h3 className="mb-2 text-xl font-semibold">YouTube</h3>
+                            <p>{projectMetrics.youtubeViews28Days} visualizzazioni (28 giorni)</p>
+                            <p>{projectMetrics.youtubeViews48Hours} visualizzazioni (48 ore)</p>
                         </div>
 
-                        <div className="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-                            <h3 className="mb-4 text-xl font-semibold">Presentazione</h3>
-                            <p className="text-zinc-300 leading-7">
-                                Ho ragionato su come presentare l’offerta musicale in modo più
-                                leggibile, senza perdere atmosfera e identità visiva.
-                            </p>
+                        <div>
+                            <h3 className="mb-2 text-xl font-semibold">Instagram</h3>
+                            <p>{projectMetrics.instagramReach} account raggiunti</p>
                         </div>
 
-                        <div className="rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-                            <h3 className="mb-4 text-xl font-semibold">Direzione</h3>
-                            <p className="text-zinc-300 leading-7">
-                                Il focus era unire lato creativo e lato strategico, facendo
-                                percepire i brani come un prodotto coerente e non come elementi
-                                sparsi.
-                            </p>
+                        <div>
+                            <h3 className="mb-2 text-xl font-semibold">Sito</h3>
+                            <p>{projectMetrics.websiteVisits} visite</p>
                         </div>
                     </div>
-                </motion.section>
 
-                <motion.section
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.7, delay: 0.4 }}
-                    className="mb-20"
-                >
-                    <p className="mb-3 text-xs uppercase tracking-[0.3em] text-zinc-500">
-                        Direzione del progetto
+                    <p className="mt-8 text-sm text-zinc-500">
+                        Ultimo aggiornamento: {projectMetrics.lastUpdate}
                     </p>
-
-                    <h2 className="mb-6 text-3xl font-semibold">
-                        Un progetto creativo che deve anche orientare
-                    </h2>
-
-                    <div className="max-w-4xl space-y-5 text-base leading-8 text-zinc-300">
-                        <p>
-                            La direzione del lavoro è costruire una pagina che non si limiti a
-                            mostrare dei brani, ma che racconti meglio il valore del progetto,
-                            ne chiarisca la funzione e aiuti il cliente a presentarsi online in
-                            modo più forte.
-                        </p>
-
-                        <p>
-                            In un caso come questo, design, contenuti e ordine della pagina
-                            lavorano insieme: non per decorare, ma per dare forma a una proposta
-                            più credibile e più facile da capire.
-                        </p>
-                    </div>
-                </motion.section>
-
-                <motion.section
-                    initial={{ opacity: 0, y: 24 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.5 }}
-                    className="rounded-[32px] border border-white/10 bg-white/5 p-8 backdrop-blur-sm"
-                >
-                    <p className="mb-3 text-xs uppercase tracking-[0.3em] text-zinc-500">
-                        Nota finale
-                    </p>
-
-                    <blockquote className="max-w-3xl text-xl leading-9 text-zinc-200">
-                        Questo progetto mi interessa perché tiene insieme due cose che spesso
-                        online restano separate: il valore creativo di un contenuto e la
-                        necessità di dargli una struttura capace di comunicarlo davvero.
-                    </blockquote>
-                </motion.section>
+                </section>
             </div>
         </div>
     )
