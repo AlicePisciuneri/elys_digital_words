@@ -6,6 +6,7 @@ import {
 import { SiSubstack } from 'react-icons/si'
 import { Routes, Route, Link, Navigate } from 'react-router-dom'
 import EnglishTeacherPage from './pages/EnglishTeacherPage'
+import MusicProjectPage from './pages/MusicProjectPage'
 
 const projects = [
   {
@@ -276,7 +277,7 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/english-teacher" element={<EnglishTeacherPage />} />
-      <Route path="/music-project" element={<WorkInProgressPage />} />
+      <Route path="/music-project" element={<MusicProjectPage />} />
       <Route path="/agricultural-site" element={<WorkInProgressPage />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
