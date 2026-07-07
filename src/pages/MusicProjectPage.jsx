@@ -4,8 +4,8 @@ import LiveMetrics from "../components/LiveMetrics";
 
 const projectMetrics = {
     youtube: {
-        views28Days: "22.857",
-        views48Hours: "6.950",
+        viewslast60Days: "22.857",
+        viewslast48Hours: "6.950",
     },
 
     instagram: {
@@ -103,13 +103,13 @@ function MusicProjectPage() {
                             </p>
 
                             <h2 className="mb-4 text-4xl font-semibold text-violet-300">
-                                5.626 visualizzazioni in 28 giorni
+                                22.857 visualizzazioni in 28 giorni
                             </h2>
 
                             <p className="mb-8 text-lg leading-8 text-zinc-300">
                                 I contenuti pubblicati hanno generato una crescita organica significativa,
                                 con picchi di interesse che mostrano il potenziale del progetto e della
-                                sua presenza digitale.
+                                sua presenza digitale.<br>qui sotto un piccolo esempio dei primi 28 giorni solo su you tube</br>
                             </p>
 
                             <img

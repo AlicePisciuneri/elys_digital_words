@@ -1,3 +1,6 @@
+
+import { useState } from 'react'
+
 import {
   FaInstagram,
   FaLinkedinIn,
@@ -7,6 +10,7 @@ import { SiSubstack } from 'react-icons/si'
 import { Routes, Route, Link, Navigate } from 'react-router-dom'
 import EnglishTeacherPage from './pages/EnglishTeacherPage'
 import MusicProjectPage from './pages/MusicProjectPage'
+import { FaChevronDown } from 'react-icons/fa'
 
 const projects = [
   {
@@ -28,6 +32,59 @@ const projects = [
       'border-cyan-400/20 bg-cyan-400/10 text-zinc-100 hover:bg-cyan-400/15',
   },
 ]
+
+const faqs = [
+  {
+    question: "Quanto tempo richiede un progetto?",
+    answer:
+      "Ogni progetto ha tempi diversi, ma prima di iniziare riceverai una roadmap chiara con consegne e scadenze."
+  },
+  {
+    question: "Cosa ti serve per iniziare?",
+    answer:
+      "Mi bastano le informazioni essenziali sul tuo progetto. Ti guiderò nella raccolta di tutto il materiale necessario."
+  },
+  {
+    question: "Riceverò tutte le credenziali?",
+    answer:
+      "Sì. Alla consegna avrai pieno accesso al sito, agli account e ai servizi utilizzati."
+  },
+  {
+    question: "Posso richiedere modifiche?",
+    answer:
+      "Sì. Durante il progetto sono previste revisioni per arrivare a un risultato condiviso."
+  },
+  {
+    question: "Il sito sarà facile da gestire?",
+    answer:
+      "L'obiettivo è consegnarti uno strumento semplice da utilizzare anche senza competenze tecniche."
+  },
+  {
+    question: "Perché scegliere una soluzione personalizzata?",
+    answer:
+      "Un progetto su misura racconta la tua attività e comunica meglio il valore dei tuoi servizi."
+  },
+  {
+    question: "Come avviene la consegna?",
+    answer:
+      "Riceverai il sito pubblicato, tutte le credenziali e le indicazioni necessarie per iniziare subito."
+  },
+  {
+    question: "Offri assistenza dopo la consegna?",
+    answer:
+      "Sì, rimango disponibile per assistenza e futuri sviluppi del progetto."
+  },
+  {
+    question: "Cosa succede se emerge un problema tecnico?",
+    answer:
+      "Gli eventuali problemi vengono gestiti durante il periodo di assistenza concordato."
+  },
+  {
+    question: "È adatto anche a chi parte da zero?",
+    answer:
+      "Sì. Il progetto è pensato anche per chi desidera una guida durante tutto il percorso."
+  }
+];
 
 function ProjectLink({ project }) {
   return (
@@ -66,9 +123,24 @@ function WorkInProgressPage() {
 }
 
 function HomePage() {
+  const [openFaq, setOpenFaq] = useState(null);
+
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
   return (
-    <div className="min-h-screen bg-[#07090d] px-4 py-6 text-white md:px-6">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 lg:grid-cols-[340px_520px_320px] lg:justify-center">
+    <div className="relative min-h-screen overflow-hidden  text-white">
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover"
+      >
+        <source src="/background.mp4" type="video/mp4" />
+      </video>
+
+      <div className="absolute inset-0 bg-[#07090d]/80" />     <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 lg:grid-cols-[340px_520px_320px] lg:justify-center">
         <aside className="order-2 lg:order-1 lg:self-start">
           <Card className="shadow-[0_0_30px_rgba(168,85,247,0.12)]">
             <p className="mb-4 text-5xl font-semibold leading-none text-white">
@@ -191,49 +263,52 @@ function HomePage() {
 
           <Card isDashed>
             <p className="mb-3 text-xs uppercase tracking-[0.3em] text-zinc-400">
-              Se scrivi o lavori sui social ti potrebbe interessare...
+              Prima di contattarmi potresti chiederti questo.
             </p>
 
-            <a
-              href="https://calligrafe.com/2026/05/04/il-diavolo-veste-ancora-prada/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition hover:-translate-y-1 hover:bg-white/10"
-            >
-              <img
-                src="/The Devil Wears Prada 2.jpg"
-                alt="Anteprima articolo pubblicato su Calligrafe"
-                className="h-64 w-full object-cover object-top"
-              />
+            <h2 className="mb-4 text-3xl font-semibold text-white">
+              Ogni progetto inizia con una conversazione.
+            </h2>
 
-              <div className="p-4">
-                <p className="mb-2 text-xs uppercase tracking-[0.3em] text-zinc-400">
-                  Calligrafe
-                </p>
-
-                <h3 className="mb-2 text-lg font-semibold text-white">
-                  Il diavolo veste ancora Prada: un trattato sulla fine di
-                  un’era
-                </h3>
-
-                <p className="text-sm leading-6 text-zinc-300">
-                  Un esempio del mio lato editoriale: analisi culturale,
-                  sguardo narrativo e costruzione di contenuti con un’identità
-                  precisa.
-                </p>
-              </div>
-            </a>
-          </Card>
-
-          <Card isDashed>
-            <p className="mb-3 text-xs uppercase tracking-[0.3em] text-zinc-400">
-              Work in progress
+            <p className="mb-8 text-zinc-300 leading-7">
+              Queste sono le domande che ricevo più spesso prima di iniziare una collaborazione.
             </p>
 
-            <div className="flex h-64 items-center justify-center rounded-2xl border border-dashed border-white/10 text-sm text-zinc-500">
-              Qui andrà un futuro caso studio o un’altra article card
+            <div className="divide-y divide-white/10">
+              {faqs.map((faq, index) => (
+                <div key={index} className="py-5">
+
+                  <button
+                    onClick={() => toggleFaq(index)}
+                    className="group flex w-full items-center justify-between py-1 text-left"
+                  >
+                    <span
+                      className={`text-lg font-medium transition-colors ${openFaq === index
+                        ? "text-violet-400"
+                        : "text-white group-hover:text-violet-400"
+                        }`}
+                    >
+                      {faq.question}
+                    </span>
+                    <FaChevronDown
+                      className={`text-zinc-400 transition-transform duration-300 ${openFaq === index ? "rotate-180" : ""
+                        }`}
+                    />
+
+
+                  </button>
+
+                  {openFaq === index && (
+                    <p className="mt-4 pr-8 leading-7 text-zinc-300">
+                      {faq.answer}
+                    </p>
+                  )}
+
+                </div>
+              ))}
             </div>
           </Card>
+
         </div>
         <aside className="order-3 lg:order-3 lg:self-start">
           <a
