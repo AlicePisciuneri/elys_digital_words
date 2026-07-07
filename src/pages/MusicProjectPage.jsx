@@ -1,12 +1,22 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import LiveMetrics from "../components/LiveMetrics";
 
 const projectMetrics = {
-    youtubeViews28Days: "5.626",
-    youtubeViews48Hours: "695",
-    instagramReach: "1.240",
-    websiteVisits: "327",
-    lastUpdate: "24 giugno 2026",
+    youtube: {
+        views28Days: "22.857",
+        views48Hours: "6.950",
+    },
+
+    instagram: {
+        reachedAccounts: "1.395",
+    },
+
+    website: {
+        visits: "500",
+    },
+
+    lastUpdate: "07/07/2026",
 };
 
 function MusicProjectPage() {
@@ -107,6 +117,7 @@ function MusicProjectPage() {
                                 alt="Analytics YouTube del progetto"
                                 className="w-full"
                             />
+                            <LiveMetrics metrics={projectMetrics} />
                         </section>
                     </div>
                 </motion.section>
