@@ -2,15 +2,17 @@
 import { useState } from 'react'
 
 import {
-  FaInstagram,
   FaLinkedinIn,
   FaGithub,
-} from 'react-icons/fa'
-import { SiSubstack } from 'react-icons/si'
+  FaChevronDown,
+  FaWhatsapp,
+} from "react-icons/fa";
+
+import { MdEmail } from "react-icons/md";
 import { Routes, Route, Link, Navigate } from 'react-router-dom'
 import EnglishTeacherPage from './pages/EnglishTeacherPage'
 import MusicProjectPage from './pages/MusicProjectPage'
-import { FaChevronDown } from 'react-icons/fa'
+import FirstConversation from "./components/FirstConversation";
 
 const projects = [
   {
@@ -140,8 +142,12 @@ function HomePage() {
         <source src="/background.mp4" type="video/mp4" />
       </video>
 
-      <div className="absolute inset-0 bg-[#07090d]/80" />     <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 lg:grid-cols-[340px_520px_320px] lg:justify-center">
+      <div className="absolute inset-0 bg-[#07090d]/80" />
+
+      <div className="relative z-10 px-4 py-6 md:px-6">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 lg:grid-cols-[340px_520px_320px] lg:justify-center"></div>
         <aside className="order-2 lg:order-1 lg:self-start">
+
           <Card className="shadow-[0_0_30px_rgba(168,85,247,0.12)]">
             <p className="mb-4 text-5xl font-semibold leading-none text-white">
               {'{ }'}
@@ -157,6 +163,7 @@ function HomePage() {
               ))}
             </div>
           </Card>
+          <FirstConversation />
         </aside>
         <div className="order-1 flex flex-col gap-4 lg:order-2">
           <Card className="shadow-[0_0_30px_rgba(168,85,247,0.12)]">
@@ -177,30 +184,23 @@ function HomePage() {
                 </div>
 
                 <p className="max-w-md text-lg leading-8 text-zinc-300">
-                  Progetto spazi digitali che uniscono struttura, contenuti e
-                  identità visiva per aiutare freelance, professionisti e
-                  piccole attività a presentarsi meglio online e trasformare il
-                  traffico in contatti concreti.
+                  Aiuto freelance, professionisti e piccole attività a costruire
+                  una presenza digitale capace di raccontare il loro valore,
+                  ispirare fiducia e trasformare le visite in contatti concreti.
+
+                  Hai un progetto personale, un'idea o vuoi semplicemente
+                  realizzare il tuo primo sito? Possiamo costruirlo insieme.
                 </p>
               </div>
 
               <div className="flex flex-col items-center gap-3">
-                <a
-                  href="https://www.instagram.com/elysinbookland"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Visita il mio profilo Instagram"
-                  className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/90 transition hover:bg-white"
-                >
-                  <FaInstagram className="text-[#E1306C]" />
-                </a>
 
                 <a
                   href="https://www.linkedin.com/in/alice-pisciuneri-b55275344/"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Visita il mio profilo LinkedIn"
-                  className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/90 transition hover:bg-white"
+                  className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/90 transition hover:bg-white hover:scale-105"
                 >
                   <FaLinkedinIn className="text-[#0A66C2]" />
                 </a>
@@ -210,27 +210,36 @@ function HomePage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Visita il mio profilo GitHub"
-                  className="flex h-12 w-12 items-center justify-center rounded-xl bg-black transition hover:bg-zinc-800"
+                  className="flex h-12 w-12 items-center justify-center rounded-xl bg-black transition hover:bg-zinc-800 hover:scale-105"
                 >
                   <FaGithub className="text-white" />
                 </a>
 
                 <a
-                  href="https://substack.com"
+                  href="mailto:alice.digitalwords@gmail.com"
+                  aria-label="Scrivimi una email"
+                  className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/90 transition hover:bg-white hover:scale-105"
+                >
+                  <MdEmail className="text-violet-500" />
+                </a>
+
+                <a
+                  href="https://wa.me/3356854905?text=Ciao%20Alice,%20ho%20visitato%20il%20tuo%20portfolio%20e%20vorrei%20parlarti%20di%20un%20progetto."
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Visita il mio profilo Substack"
-                  className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/90 transition hover:bg-white"
+                  aria-label="Scrivimi su WhatsApp"
+                  className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#25D366] transition hover:scale-105"
                 >
-                  <SiSubstack className="text-[#FF6719]" />
+                  <FaWhatsapp className="text-white" />
                 </a>
+
               </div>
             </div>
           </Card>
 
           <Card>
             <p className="mb-4 text-xs uppercase tracking-[0.3em] text-zinc-400">
-              Cosa costruisco
+              Cosa posso fare per te
             </p>
 
             <div className="grid grid-cols-2 gap-3">
@@ -344,8 +353,11 @@ function HomePage() {
         </aside>
       </div>
     </div>
+
+
   )
 }
+
 
 function App() {
   return (
