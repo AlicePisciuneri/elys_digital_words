@@ -9,7 +9,11 @@ export const siteContent = {
     education: 'Formazione in sviluppo web con Boolean e un percorso costruito attraverso progetti reali tra React, contenuti e comunicazione digitale.',
     // Inserisci qui il percorso della futura foto, per esempio: '/alice-professionale.jpg'.
     // Lascia una stringa vuota per mantenere la testata senza immagine.
-    photo: '',
+    photo: '/alice-professionale.png',
+    supportingImages: [
+      { src: '/hero-laptop.png', alt: 'Postazione di lavoro con portatile' },
+      { src: '/hero-wireframe.png', alt: 'Progettazione di una pagina su quaderno' },
+    ],
   },
   contact: {
     email: 'alice.digitalwords@gmail.com',
