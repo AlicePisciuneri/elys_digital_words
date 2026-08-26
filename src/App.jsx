@@ -1,362 +1,109 @@
-
 import { useState } from 'react'
-
-import {
-  FaInstagram,
-  FaLinkedinIn,
-  FaGithub,
-} from 'react-icons/fa'
-import { SiSubstack } from 'react-icons/si'
-import { Routes, Route, Link, Navigate } from 'react-router-dom'
+import { Navigate, Route, Routes, Link } from 'react-router-dom'
+import { FaEnvelope, FaGithub, FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa'
 import EnglishTeacherPage from './pages/EnglishTeacherPage'
 import MusicProjectPage from './pages/MusicProjectPage'
-import { FaChevronDown } from 'react-icons/fa'
+import { siteContent } from './content/siteContent'
 
-const projects = [
-  {
-    title: 'Landing page per insegnante di inglese',
-    href: '/english-teacher',
-    color:
-      'border-violet-400/20 bg-violet-400/10 text-zinc-100 hover:bg-violet-400/15',
-  },
-  {
-    title: 'Vendita brani royalty-free per musicista',
-    href: '/music-project',
-    color:
-      'border-fuchsia-400/20 bg-fuchsia-400/10 text-zinc-100 hover:bg-fuchsia-400/15',
-  },
-  {
-    title: 'Sito WordPress per progetto agricolo',
-    href: '/agricultural-site',
-    color:
-      'border-cyan-400/20 bg-cyan-400/10 text-zinc-100 hover:bg-cyan-400/15',
-  },
-]
+const toneClasses = {
+  violet: 'border-violet-400/20 bg-violet-400/10',
+  fuchsia: 'border-fuchsia-400/20 bg-fuchsia-400/10',
+  cyan: 'border-cyan-400/20 bg-cyan-400/10',
+}
 
-const faqs = [
-  {
-    question: "Quanto tempo richiede un progetto?",
-    answer:
-      "Ogni progetto ha tempi diversi, ma prima di iniziare riceverai una roadmap chiara con consegne e scadenze."
-  },
-  {
-    question: "Cosa ti serve per iniziare?",
-    answer:
-      "Mi bastano le informazioni essenziali sul tuo progetto. Ti guiderò nella raccolta di tutto il materiale necessario."
-  },
-  {
-    question: "Riceverò tutte le credenziali?",
-    answer:
-      "Sì. Alla consegna avrai pieno accesso al sito, agli account e ai servizi utilizzati."
-  },
-  {
-    question: "Posso richiedere modifiche?",
-    answer:
-      "Sì. Durante il progetto sono previste revisioni per arrivare a un risultato condiviso."
-  },
-  {
-    question: "Il sito sarà facile da gestire?",
-    answer:
-      "L'obiettivo è consegnarti uno strumento semplice da utilizzare anche senza competenze tecniche."
-  },
-  {
-    question: "Perché scegliere una soluzione personalizzata?",
-    answer:
-      "Un progetto su misura racconta la tua attività e comunica meglio il valore dei tuoi servizi."
-  },
-  {
-    question: "Come avviene la consegna?",
-    answer:
-      "Riceverai il sito pubblicato, tutte le credenziali e le indicazioni necessarie per iniziare subito."
-  },
-  {
-    question: "Offri assistenza dopo la consegna?",
-    answer:
-      "Sì, rimango disponibile per assistenza e futuri sviluppi del progetto."
-  },
-  {
-    question: "Cosa succede se emerge un problema tecnico?",
-    answer:
-      "Gli eventuali problemi vengono gestiti durante il periodo di assistenza concordato."
-  },
-  {
-    question: "È adatto anche a chi parte da zero?",
-    answer:
-      "Sì. Il progetto è pensato anche per chi desidera una guida durante tutto il percorso."
+function Card({ children, className = '' }) {
+  return <section className={`rounded-[28px] border border-white/10 bg-[#14151a]/90 p-6 backdrop-blur-md ${className}`}>{children}</section>
+}
+
+function ContactForm() {
+  const [form, setForm] = useState({ name: '', email: '', project: '' })
+  const submit = (event) => {
+    event.preventDefault()
+    const subject = encodeURIComponent(`Richiesta dal sito di ${form.name}`)
+    const body = encodeURIComponent(`Nome: ${form.name}\nEmail: ${form.email}\n\nProgetto:\n${form.project}`)
+    window.location.href = `mailto:${siteContent.contact.email}?subject=${subject}&body=${body}`
   }
-];
 
-function ProjectLink({ project }) {
   return (
-    <Link
-      to={project.href}
-      className={`rounded-2xl border px-4 py-4 text-sm transition hover:-translate-y-0.5 ${project.color}`}
-    >
-      {project.title}
-    </Link>
-  )
-}
-
-function Card({ children, className = '', isDashed = false }) {
-  return (
-    <section
-      className={`rounded-[28px] border ${isDashed ? 'border-dashed border-white/10' : 'border-white/10'
-        } bg-white/5 p-5 backdrop-blur-sm ${className}`}
-    >
-      {children}
-    </section>
-  )
-}
-
-function WorkInProgressPage() {
-  return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-[#07090d] p-4 text-white">
-      <h2 className="mb-4 text-2xl font-semibold">Progetto in arrivo!</h2>
-      <p className="mb-6 text-zinc-400">
-        Sto sistemando gli ultimi dettagli di questo caso studio.
-      </p>
-      <Link to="/" className="text-violet-400 hover:underline">
-        Torna alla Home
-      </Link>
-    </div>
+    <form onSubmit={submit} className="grid gap-4">
+      <label className="grid gap-2 text-sm text-zinc-300">Come ti chiami?
+        <input required value={form.name} onChange={(event) => setForm({ ...form, name: event.target.value })} className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none focus:border-violet-400" />
+      </label>
+      <label className="grid gap-2 text-sm text-zinc-300">La tua email
+        <input required type="email" value={form.email} onChange={(event) => setForm({ ...form, email: event.target.value })} className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none focus:border-violet-400" />
+      </label>
+      <label className="grid gap-2 text-sm text-zinc-300">Raccontami brevemente cosa vuoi realizzare
+        <textarea required rows="5" value={form.project} onChange={(event) => setForm({ ...form, project: event.target.value })} className="resize-y rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none focus:border-violet-400" />
+      </label>
+      <button className="rounded-xl bg-violet-500 px-5 py-3 font-semibold text-white transition hover:bg-violet-400">Prepara la richiesta via email</button>
+      <p className="text-xs leading-5 text-zinc-500">Il pulsante apre la tua app email: nessun dato viene salvato dal sito.</p>
+    </form>
   )
 }
 
 function HomePage() {
-  const [openFaq, setOpenFaq] = useState(null);
-
-  const toggleFaq = (index) => {
-    setOpenFaq(openFaq === index ? null : index);
-  };
+  const whatsappUrl = siteContent.contact.whatsappNumber ? `https://wa.me/${siteContent.contact.whatsappNumber}` : ''
   return (
-    <div className="relative min-h-screen overflow-hidden  text-white">
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 h-full w-full object-cover"
-      >
-        <source src="/background.mp4" type="video/mp4" />
-      </video>
-
-      <div className="absolute inset-0 bg-[#07090d]/80" />     <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 lg:grid-cols-[340px_520px_320px] lg:justify-center">
-        <aside className="order-2 lg:order-1 lg:self-start">
-          <Card className="shadow-[0_0_30px_rgba(168,85,247,0.12)]">
-            <p className="mb-4 text-5xl font-semibold leading-none text-white">
-              {'{ }'}
-            </p>
-
-            <p className="mb-4 text-xs uppercase tracking-[0.3em] text-zinc-400">
-              Scopri cosa ho già realizzato
-            </p>
-
-            <div className="flex flex-col gap-3">
-              {projects.map((project) => (
-                <ProjectLink key={project.title} project={project} />
-              ))}
-            </div>
-          </Card>
-        </aside>
-        <div className="order-1 flex flex-col gap-4 lg:order-2">
-          <Card className="shadow-[0_0_30px_rgba(168,85,247,0.12)]">
-            <div className="flex gap-4">
-              <div className="flex-1">
-                <div className="mb-4 flex items-center gap-3">
-                  <img
-                    src="/profile-preview.png"
-                    alt="Foto profilo Alice"
-                    className="h-16 w-16 rounded-full object-cover"
-                  />
-
-                  <div>
-                    <h1 className="text-3xl font-semibold leading-tight">
-                      alice.digitalwords
-                    </h1>
-                  </div>
-                </div>
-
-                <p className="max-w-md text-lg leading-8 text-zinc-300">
-                  Progetto spazi digitali che uniscono struttura, contenuti e
-                  identità visiva per aiutare freelance, professionisti e
-                  piccole attività a presentarsi meglio online e trasformare il
-                  traffico in contatti concreti.
-                </p>
-              </div>
-
-              <div className="flex flex-col items-center gap-3">
-                <a
-                  href="https://www.instagram.com/elysinbookland"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Visita il mio profilo Instagram"
-                  className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/90 transition hover:bg-white"
-                >
-                  <FaInstagram className="text-[#E1306C]" />
-                </a>
-
-                <a
-                  href="https://www.linkedin.com/in/alice-pisciuneri-b55275344/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Visita il mio profilo LinkedIn"
-                  className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/90 transition hover:bg-white"
-                >
-                  <FaLinkedinIn className="text-[#0A66C2]" />
-                </a>
-
-                <a
-                  href="https://github.com/AlicePisciuneri"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Visita il mio profilo GitHub"
-                  className="flex h-12 w-12 items-center justify-center rounded-xl bg-black transition hover:bg-zinc-800"
-                >
-                  <FaGithub className="text-white" />
-                </a>
-
-                <a
-                  href="https://substack.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Visita il mio profilo Substack"
-                  className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/90 transition hover:bg-white"
-                >
-                  <SiSubstack className="text-[#FF6719]" />
-                </a>
+    <div className="relative min-h-screen overflow-hidden bg-[#07090d] px-4 py-6 text-white md:px-8 md:py-10">
+      <video autoPlay loop muted playsInline className="fixed inset-0 h-full w-full object-cover opacity-20" aria-hidden="true"><source src="/background.mp4" type="video/mp4" /></video>
+      <div className="fixed inset-0 bg-[#07090d]/80" />
+      <main className="relative mx-auto max-w-6xl space-y-6">
+        <Card className="p-7 md:p-10">
+          <div className={`grid items-center gap-8 ${siteContent.profile.photo ? 'lg:grid-cols-[1fr_280px]' : ''}`}>
+            <div>
+              <p className="mb-4 text-xs uppercase tracking-[0.3em] text-violet-300">{siteContent.profile.eyebrow}</p>
+              <p className="mb-2 text-lg text-zinc-300">{siteContent.profile.name}</p>
+              <h1 className="max-w-4xl text-4xl font-semibold leading-tight md:text-6xl">{siteContent.profile.headline}</h1>
+              <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-300">{siteContent.profile.description}</p>
+              <p className="mt-4 max-w-3xl text-sm leading-7 text-zinc-400"><strong className="text-zinc-200">{siteContent.profile.role}.</strong> {siteContent.profile.education}</p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a href="#contatti" className="rounded-xl bg-violet-500 px-5 py-3 font-semibold transition hover:bg-violet-400">Raccontami il tuo progetto</a>
+                <a href="#progetti" className="rounded-xl border border-white/15 bg-white/5 px-5 py-3 font-semibold transition hover:bg-white/10">Scopri cosa ho realizzato</a>
               </div>
             </div>
+            {siteContent.profile.photo && <img src={siteContent.profile.photo} alt={`Ritratto professionale di ${siteContent.profile.name}`} className="aspect-[4/5] w-full rounded-[24px] object-cover" />}
+          </div>
+        </Card>
+
+        <section className="grid gap-6 lg:grid-cols-3" aria-labelledby="servizi-title">
+          <div className="lg:col-span-3"><p className="text-xs uppercase tracking-[0.3em] text-zinc-400">Come posso aiutarti</p><h2 id="servizi-title" className="mt-3 text-3xl font-semibold md:text-4xl">Partiamo dal problema, non dal formato.</h2></div>
+          {siteContent.services.map((service) => (
+            <Card key={service.title} className="flex h-full flex-col">
+              <h3 className="text-2xl font-semibold">{service.title}</h3><p className="mt-4 leading-7 text-zinc-300">{service.audience}</p>
+              <p className="mt-5 text-sm uppercase tracking-wider text-zinc-500">Problema</p><p className="mt-2 leading-7 text-zinc-300">{service.problem}</p>
+              <p className="mt-5 text-sm uppercase tracking-wider text-zinc-500">Risultato</p><p className="mt-2 leading-7 text-zinc-300">{service.result}</p>
+              <a href="#contatti" className="mt-6 font-semibold text-violet-300 hover:text-violet-200">Chiedimi informazioni →</a>
+            </Card>
+          ))}
+        </section>
+
+        <Card><p className="text-xs uppercase tracking-[0.3em] text-zinc-400">Come lavoro</p><div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {siteContent.process.map(([number, title, description]) => <div key={number}><span className="text-sm text-violet-300">{number}</span><h3 className="mt-2 text-xl font-semibold">{title}</h3><p className="mt-3 leading-7 text-zinc-400">{description}</p></div>)}
+        </div></Card>
+
+        <section id="progetti" className="scroll-mt-6" aria-labelledby="progetti-title">
+          <p className="text-xs uppercase tracking-[0.3em] text-zinc-400">Progetti e casi studio</p><h2 id="progetti-title" className="mt-3 text-3xl font-semibold md:text-4xl">Il lavoro, con il suo stato reale.</h2>
+          <div className="mt-6 grid gap-6 lg:grid-cols-3">{siteContent.projects.map((project) => {
+            const content = <><p className="text-xs uppercase tracking-[0.2em] text-zinc-400">{project.status}</p><h3 className="mt-4 text-2xl font-semibold">{project.title}</h3><p className="mt-3 leading-7 text-zinc-300">{project.description}</p><p className="mt-6 font-semibold text-white">{project.available ? 'Apri il caso studio →' : 'Presto disponibile'}</p></>
+            const classes = `block rounded-[28px] border p-6 ${toneClasses[project.tone]} ${project.available ? 'transition hover:-translate-y-1' : 'opacity-75'}`
+            return project.available ? <Link key={project.title} to={project.href} className={classes}>{content}</Link> : <article key={project.title} className={classes}>{content}</article>
+          })}</div>
+        </section>
+
+        <section id="contatti" className="grid scroll-mt-6 gap-6 lg:grid-cols-[0.8fr_1.2fr]">
+          <Card><p className="text-xs uppercase tracking-[0.3em] text-zinc-400">Contatti</p><h2 className="mt-4 text-3xl font-semibold">Hai un’idea o un problema da chiarire?</h2><p className="mt-5 leading-8 text-zinc-300">Scrivimi senza preparare un brief perfetto. Possiamo partire da poche informazioni e capire insieme il passo successivo.</p><p className="mt-5 text-sm text-zinc-400">{siteContent.contact.responseTime}</p>
+            <div className="mt-7 grid gap-3"><a href={`mailto:${siteContent.contact.email}`} className="flex items-center gap-3 rounded-xl bg-white/5 px-4 py-3 hover:bg-white/10"><FaEnvelope /> {siteContent.contact.email}</a>{whatsappUrl && <a href={whatsappUrl} target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded-xl bg-emerald-400/10 px-4 py-3 hover:bg-emerald-400/20"><FaWhatsapp /> Scrivimi su WhatsApp</a>}</div>
+            <div className="mt-7 flex gap-4 text-xl"><a href={siteContent.social.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><FaInstagram /></a><a href={siteContent.social.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><FaLinkedinIn /></a><a href={siteContent.social.github} target="_blank" rel="noreferrer" aria-label="GitHub"><FaGithub /></a></div>
           </Card>
-
-          <Card>
-            <p className="mb-4 text-xs uppercase tracking-[0.3em] text-zinc-400">
-              Cosa costruisco
-            </p>
-
-            <div className="grid grid-cols-2 gap-3">
-              <div className="rounded-2xl bg-white/5 p-4 text-base text-zinc-200">
-                Landing page
-              </div>
-              <div className="rounded-2xl bg-white/5 p-4 text-base text-zinc-200">
-                Siti vetrina
-              </div>
-              <div className="rounded-2xl bg-white/5 p-4 text-base text-zinc-200">
-                Contenuti digitali
-              </div>
-              <div className="rounded-2xl bg-white/5 p-4 text-base text-zinc-200">
-                Presenza online e social
-              </div>
-            </div>
-          </Card>
-
-          <Card>
-            <p className="mb-4 text-xs uppercase tracking-[0.3em] text-zinc-400">
-              Cosa offro
-            </p>
-
-            <p className="text-base leading-8 text-zinc-300">
-              Uno spazio digitale che non sia solo ordinato o bello da vedere,
-              ma capace di guidare chi arriva, generare fiducia e trasformare
-              l’attenzione in un contatto reale.
-            </p>
-          </Card>
-
-          <Card isDashed>
-            <p className="mb-3 text-xs uppercase tracking-[0.3em] text-zinc-400">
-              Prima di contattarmi potresti chiederti questo.
-            </p>
-
-            <h2 className="mb-4 text-3xl font-semibold text-white">
-              Ogni progetto inizia con una conversazione.
-            </h2>
-
-            <p className="mb-8 text-zinc-300 leading-7">
-              Queste sono le domande che ricevo più spesso prima di iniziare una collaborazione.
-            </p>
-
-            <div className="divide-y divide-white/10">
-              {faqs.map((faq, index) => (
-                <div key={index} className="py-5">
-
-                  <button
-                    onClick={() => toggleFaq(index)}
-                    className="group flex w-full items-center justify-between py-1 text-left"
-                  >
-                    <span
-                      className={`text-lg font-medium transition-colors ${openFaq === index
-                        ? "text-violet-400"
-                        : "text-white group-hover:text-violet-400"
-                        }`}
-                    >
-                      {faq.question}
-                    </span>
-                    <FaChevronDown
-                      className={`text-zinc-400 transition-transform duration-300 ${openFaq === index ? "rotate-180" : ""
-                        }`}
-                    />
-
-
-                  </button>
-
-                  {openFaq === index && (
-                    <p className="mt-4 pr-8 leading-7 text-zinc-300">
-                      {faq.answer}
-                    </p>
-                  )}
-
-                </div>
-              ))}
-            </div>
-          </Card>
-
-        </div>
-        <aside className="order-3 lg:order-3 lg:self-start">
-          <a
-            href="/elys.jpg"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block overflow-hidden rounded-[28px] border border-white/10 bg-white/5 p-4 backdrop-blur-sm transition hover:-translate-y-1 hover:bg-white/10"
-          >
-            <img
-              src="/elys.jpg"
-              alt="Grafica visuale di Elys"
-              className="mb-4 max-h-[500px] w-full rounded-[22px] object-contain"
-            />
-
-            <p className="mb-2 text-xs uppercase tracking-[0.3em] text-zinc-400">
-              Visual storytelling
-            </p>
-
-            <h2 className="mb-3 text-xl font-semibold leading-tight text-white">
-              Come nascono queste grafiche?
-            </h2>
-
-            <p className="text-sm leading-6 text-zinc-300">
-              Un piccolo spazio per raccontare il lato visivo dei miei
-              contenuti: immagini, idee, atmosfera e qualche segreto di
-              lavorazione.
-            </p>
-
-            <p className="mt-3 text-xs uppercase tracking-[0.2em] text-zinc-500">
-              Clicca per ingrandire
-            </p>
-          </a>
-        </aside>
-      </div>
+          <Card><ContactForm /></Card>
+        </section>
+      </main>
     </div>
   )
 }
 
 function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/english-teacher" element={<EnglishTeacherPage />} />
-      <Route path="/music-project" element={<MusicProjectPage />} />
-      <Route path="/agricultural-site" element={<WorkInProgressPage />} />
-      <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
-  )
+  return <Routes><Route path="/" element={<HomePage />} /><Route path="/english-teacher" element={<EnglishTeacherPage />} /><Route path="/music-project" element={<MusicProjectPage />} /><Route path="*" element={<Navigate to="/" replace />} /></Routes>
 }
 
 export default App

@@ -109,7 +109,11 @@ function MusicProjectPage() {
                             <p className="mb-8 text-lg leading-8 text-zinc-300">
                                 I contenuti pubblicati hanno generato una crescita organica significativa,
                                 con picchi di interesse che mostrano il potenziale del progetto e della
-                                sua presenza digitale.<br>qui sotto un piccolo esempio dei primi 28 giorni solo su you tube</br>
+                                sua presenza digitale.
+                            </p>
+
+                            <p className="mb-8 text-lg leading-8 text-zinc-300">
+                                Qui sotto un piccolo esempio dei primi 28 giorni su YouTube.
                             </p>
 
                             <img
@@ -167,10 +171,11 @@ function MusicProjectPage() {
                                 approfondire.
                             </p>
 
-
-                            Una pagina del genere non deve solo “piacere”. Deve ridurre
-                            attrito, aumentare chiarezza e accompagnare la persona verso
-                            un’azione possibile: ascoltare, orientarsi, contattare, comprare.
+                            <p>
+                                Una pagina del genere non deve solo “piacere”. Deve ridurre
+                                attrito, aumentare chiarezza e accompagnare la persona verso
+                                un’azione possibile: ascoltare, orientarsi, contattare, comprare.
+                            </p>
 
                             <p><strong> Infrastruttura Dati & Automation:</strong>
                                 Per supportare questa crescita, ho implementato un sistema di backend
@@ -190,37 +195,7 @@ function MusicProjectPage() {
                         </div>
                     </div>
                 </motion.section>
-                <section className="my-20">
-                    <p className="mb-3 text-xs uppercase tracking-[0.3em] text-zinc-500">
-                        Metriche del progetto
-                    </p>
 
-                    <h2 className="mb-8 text-4xl font-semibold text-violet-300">
-                        Crescita monitorata nel tempo
-                    </h2>
-
-                    <div className="grid gap-6 md:grid-cols-3">
-                        <div>
-                            <h3 className="mb-2 text-xl font-semibold">YouTube</h3>
-                            <p>{projectMetrics.youtubeViews28Days} visualizzazioni (28 giorni)</p>
-                            <p>{projectMetrics.youtubeViews48Hours} visualizzazioni (48 ore)</p>
-                        </div>
-
-                        <div>
-                            <h3 className="mb-2 text-xl font-semibold">Instagram</h3>
-                            <p>{projectMetrics.instagramReach} account raggiunti</p>
-                        </div>
-
-                        <div>
-                            <h3 className="mb-2 text-xl font-semibold">Sito</h3>
-                            <p>{projectMetrics.websiteVisits} visite</p>
-                        </div>
-                    </div>
-
-                    <p className="mt-8 text-sm text-zinc-500">
-                        Ultimo aggiornamento: {projectMetrics.lastUpdate}
-                    </p>
-                </section>
             </div>
         </div>
     )
