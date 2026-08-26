@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Navigate, Route, Routes, Link } from 'react-router-dom'
 import { FaEnvelope, FaGithub, FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa'
+import { motion, useReducedMotion } from 'framer-motion'
 import EnglishTeacherPage from './pages/EnglishTeacherPage'
 import MusicProjectPage from './pages/MusicProjectPage'
 import { siteContent } from './content/siteContent'
@@ -13,6 +14,47 @@ const toneClasses = {
 
 function Card({ children, className = '' }) {
   return <section className={`rounded-[28px] border border-white/10 bg-[#14151a]/90 p-6 backdrop-blur-md ${className}`}>{children}</section>
+}
+
+function HeroVisual() {
+  const reduceMotion = useReducedMotion()
+  const [laptop, wireframe] = siteContent.profile.supportingImages
+  const enter = (x, y, delay) => ({
+    initial: reduceMotion ? false : { opacity: 0, x, y, scale: 0.94 },
+    animate: { opacity: 1, x: 0, y: 0, scale: 1 },
+    transition: { duration: 0.7, delay, ease: 'easeOut' },
+  })
+
+  return (
+    <div className="relative mx-auto h-[440px] w-full max-w-[390px] md:h-[500px]" aria-label="Alice e il suo spazio di lavoro">
+      <motion.img
+        {...enter(0, 28, 0.05)}
+        whileHover={reduceMotion ? undefined : { y: -5 }}
+        src={siteContent.profile.photo}
+        alt={`Ritratto professionale di ${siteContent.profile.name}`}
+        className="absolute left-1/2 top-10 z-20 -ml-[122px] h-[360px] w-[245px] rounded-[26px] border border-white/15 object-cover shadow-2xl md:-ml-[142px] md:h-[420px] md:w-[285px]"
+      />
+      <motion.img
+        initial={reduceMotion ? false : { opacity: 0, x: 34, y: -24, scale: 0.94, rotate: 7 }}
+        animate={{ opacity: 1, x: 0, y: 0, scale: 1, rotate: 3 }}
+        transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
+        whileHover={reduceMotion ? undefined : { y: -7, rotate: 1 }}
+        src={laptop.src}
+        alt={laptop.alt}
+        className="absolute right-0 top-0 z-30 h-36 w-28 rounded-2xl border border-white/20 object-cover shadow-xl md:h-40 md:w-32"
+      />
+      <motion.img
+        initial={reduceMotion ? false : { opacity: 0, x: -34, y: 24, scale: 0.94, rotate: -7 }}
+        animate={{ opacity: 1, x: 0, y: 0, scale: 1, rotate: -3 }}
+        transition={{ duration: 0.7, delay: 0.35, ease: 'easeOut' }}
+        whileHover={reduceMotion ? undefined : { y: -7, rotate: -1 }}
+        src={wireframe.src}
+        alt={wireframe.alt}
+        className="absolute bottom-0 left-0 z-30 h-36 w-28 rounded-2xl border border-white/20 object-cover shadow-xl md:h-40 md:w-32"
+      />
+      <div className="absolute inset-x-8 bottom-6 h-24 rounded-full bg-violet-500/20 blur-3xl" aria-hidden="true" />
+    </div>
+  )
 }
 
 function ContactForm() {
@@ -49,7 +91,7 @@ function HomePage() {
       <div className="fixed inset-0 bg-[#07090d]/80" />
       <main className="relative mx-auto max-w-6xl space-y-6">
         <Card className="p-7 md:p-10">
-          <div className={`grid items-center gap-8 ${siteContent.profile.photo ? 'lg:grid-cols-[1fr_280px]' : ''}`}>
+          <div className={`grid items-center gap-10 ${siteContent.profile.photo ? 'lg:grid-cols-[minmax(0,1fr)_390px]' : ''}`}>
             <div>
               <p className="mb-4 text-xs uppercase tracking-[0.3em] text-violet-300">{siteContent.profile.eyebrow}</p>
               <p className="mb-2 text-lg text-zinc-300">{siteContent.profile.name}</p>
@@ -61,7 +103,7 @@ function HomePage() {
                 <a href="#progetti" className="rounded-xl border border-white/15 bg-white/5 px-5 py-3 font-semibold transition hover:bg-white/10">Scopri cosa ho realizzato</a>
               </div>
             </div>
-            {siteContent.profile.photo && <img src={siteContent.profile.photo} alt={`Ritratto professionale di ${siteContent.profile.name}`} className="aspect-[4/5] w-full rounded-[24px] object-cover" />}
+            {siteContent.profile.photo && <HeroVisual />}
           </div>
         </Card>
 
