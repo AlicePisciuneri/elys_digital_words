@@ -95,9 +95,8 @@ function HomePage() {
             <div>
               <p className="mb-4 text-xs uppercase tracking-[0.3em] text-violet-300">{siteContent.profile.eyebrow}</p>
               <p className="mb-2 text-lg text-zinc-300">{siteContent.profile.name}</p>
-              <h1 className="max-w-4xl text-4xl font-semibold leading-tight md:text-6xl">{siteContent.profile.headline}</h1>
+              <h1 className="max-w-4xl whitespace-pre-line text-4xl font-semibold leading-tight md:text-6xl">{siteContent.profile.headline}</h1>
               <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-300">{siteContent.profile.description}</p>
-              <p className="mt-4 max-w-3xl text-sm leading-7 text-zinc-400"><strong className="text-zinc-200">{siteContent.profile.role}.</strong> {siteContent.profile.education}</p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a href="#contatti" className="rounded-xl bg-violet-500 px-5 py-3 font-semibold transition hover:bg-violet-400">Raccontami il tuo progetto</a>
                 <a href="#progetti" className="rounded-xl border border-white/15 bg-white/5 px-5 py-3 font-semibold transition hover:bg-white/10">Scopri cosa ho realizzato</a>

@@ -4,10 +4,8 @@ export const siteContent = {
   profile: {
     eyebrow: 'Web · contenuti · identità digitale',
     name: 'Alice.DigitalWords',
-    role: 'Frontend developer e progettista di contenuti digitali',
-    headline: 'Progetto spazi digitali che rendono più chiara un’offerta e più semplice il primo contatto.',
-    description: 'Unisco sviluppo frontend, struttura dei contenuti e sensibilità editoriale per aiutare freelance, professionisti e piccole attività a presentarsi online con maggiore coerenza.',
-    education: 'Formazione in sviluppo web con Boolean e un percorso costruito attraverso progetti reali tra React, contenuti e comunicazione digitale.',
+    headline: 'Il tuo lavoro è già complicato.\nIl digitale non dovrebbe esserlo.',
+    description: 'Ascolto come funziona la tua attività e costruisco webApp e strumenti digitali chiari, semplici da usare e davvero utili nel lavoro di ogni giorno.',
     // Inserisci qui il percorso della futura foto, per esempio: '/alice-professionale.jpg'.
     // Lascia una stringa vuota per mantenere la testata senza immagine.
     photo: '/alice-professionale.png',
