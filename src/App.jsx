@@ -31,7 +31,7 @@ function HeroVisual() {
         {...enter(0, 28, 0.05)}
         whileHover={reduceMotion ? undefined : { y: -5 }}
         src={siteContent.profile.photo}
-        alt={`Ritratto professionale di ${siteContent.profile.name}`}
+        alt={`Ritratto professionale di ${siteContent.legalName}`}
         className="absolute left-1/2 top-10 z-20 -ml-[122px] h-[360px] w-[245px] rounded-[26px] border border-white/15 object-cover shadow-2xl md:-ml-[142px] md:h-[420px] md:w-[285px]"
       />
       <motion.img
@@ -104,6 +104,17 @@ function HomePage() {
               </div>
             </div>
             {siteContent.profile.photo && <HeroVisual />}
+          </div>
+        </Card>
+
+        <Card className="grid gap-8 md:grid-cols-[0.7fr_1.3fr] md:p-8">
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] text-violet-300">Chi c’è dietro</p>
+            <h2 className="mt-4 text-3xl font-semibold leading-tight md:text-4xl">{siteContent.about.title}</h2>
+          </div>
+          <div className="space-y-4 text-base leading-8 text-zinc-300">
+            {siteContent.about.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            <p className="text-lg font-semibold leading-8 text-white">{siteContent.about.closing}</p>
           </div>
         </Card>
 

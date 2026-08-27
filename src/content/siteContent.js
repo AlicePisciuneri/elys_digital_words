@@ -1,8 +1,9 @@
 export const siteContent = {
-  brand: 'Elys Digital Words',
+  brand: 'Alice.DigitalWords',
+  legalName: 'Alice Pisciuneri',
   profile: {
     eyebrow: 'Web · contenuti · identità digitale',
-    name: 'Alice Pisciuneri',
+    name: 'Alice.DigitalWords',
     role: 'Frontend developer e progettista di contenuti digitali',
     headline: 'Progetto spazi digitali che rendono più chiara un’offerta e più semplice il primo contatto.',
     description: 'Unisco sviluppo frontend, struttura dei contenuti e sensibilità editoriale per aiutare freelance, professionisti e piccole attività a presentarsi online con maggiore coerenza.',
@@ -14,6 +15,16 @@ export const siteContent = {
       { src: '/hero-laptop.png', alt: 'Postazione di lavoro con portatile' },
       { src: '/hero-wireframe.png', alt: 'Progettazione di una pagina su quaderno' },
     ],
+  },
+  about: {
+    title: 'Prima di costruire, ascolto.',
+    paragraphs: [
+      'Per vent’anni ho gestito punti vendita nella grande distribuzione. Ho imparato da vicino cosa significa far funzionare un’attività ogni giorno e quali problemi pratici possono rallentare il lavoro.',
+      'Negli ultimi due anni ho unito questa esperienza alla mia passione per lo sviluppo web, realizzando decine di siti, applicazioni e progetti digitali.',
+      'Prima di iniziare, però, voglio ascoltarti: capire come funziona la tua attività, cosa ti serve davvero e quali ostacoli incontri. Solo dopo progetto uno strumento digitale pensato per rendere il tuo lavoro più semplice.',
+      'A completare questo percorso ci sono l’esperienza nella scrittura e nella gestione dei social, insieme a una formazione in marketing.',
+    ],
+    closing: 'L’obiettivo? Rendere il digitale un alleato concreto per chi, ogni giorno, manda avanti la propria attività.',
   },
   contact: {
     email: 'alice.digitalwords@gmail.com',
