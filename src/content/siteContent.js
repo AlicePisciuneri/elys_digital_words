@@ -2,10 +2,10 @@ export const siteContent = {
   brand: 'Alice.DigitalWords',
   legalName: 'Alice Pisciuneri',
   profile: {
-    eyebrow: 'Web · contenuti · identità digitale',
+    eyebrow: 'Soluzioni digitali per freelance, professionisti e piccole attività',
     name: 'Alice.DigitalWords',
     headline: 'Il tuo lavoro è già complicato.\nIl digitale non dovrebbe esserlo.',
-    description: 'Ascolto come funziona la tua attività e costruisco webApp e strumenti digitali chiari, semplici da usare e davvero utili nel lavoro di ogni giorno.',
+    description: 'Ascolto come funziona la tua attività e costruisco web app e strumenti digitali che ti semplificano davvero il lavoro. Meno operazioni ripetitive, meno tempo perso e qualche pausa caffè in più. Te la sei meritata.',
     // Inserisci qui il percorso della futura foto, per esempio: '/alice-professionale.jpg'.
     // Lascia una stringa vuota per mantenere la testata senza immagine.
     photo: '/alice-professionale.png',
@@ -24,11 +24,20 @@ export const siteContent = {
     ],
     closing: 'L’obiettivo? Rendere il digitale un alleato concreto per chi, ogni giorno, manda avanti la propria attività.',
   },
+  authorBio: {
+    title: 'Chi c’è dietro Alice.DigitalWords?',
+    photo: '/alice-bio.png',
+    paragraphs: [
+      'Mi chiamo Alice Pisciuneri. Per vent’anni ho gestito punti vendita nella grande distribuzione: un’esperienza che mi ha insegnato cosa significa far funzionare ogni giorno un’attività, coordinare persone e affrontare problemi molto concreti.',
+      'Negli ultimi due anni ho trasformato la mia passione per il digitale in nuove competenze, completando un percorso professionale in sviluppo web e superando gli esami finali. Ho approfondito anche l’intelligenza artificiale applicata al lavoro con Tech Academy Italia – AI Upskilling.',
+      'Prima del codice ci sono state le parole: ho scritto per network e collettivi editoriali, gestito pagine social e studiato marketing. Quando non sto progettando qualcosa, probabilmente sto leggendo, ascoltando musica, guardando una montagna o cercando di bere quel famoso caffè prima che diventi freddo.',
+    ],
+  },
   contact: {
     email: 'alice.digitalwords@gmail.com',
     // Inserisci il numero completo di prefisso internazionale, senza spazi.
     whatsappNumber: '393356854905',
-    responseTime: 'Rispondo normalmente entro 1–2 giorni lavorativi.',
+    responseTime: 'Di solito rispondo entro 1–2 giorni lavorativi. Il tempo di finire il caffè e leggere tutto con attenzione.',
   },
   social: {
     instagram: 'https://www.instagram.com/elysinbookland',
@@ -36,9 +45,27 @@ export const siteContent = {
     github: 'https://github.com/AlicePisciuneri',
   },
   services: [
-    { title: 'Landing page', audience: 'Per chi deve presentare un servizio o una proposta specifica.', problem: 'Un’offerta valida che online risulta dispersiva o difficile da capire.', result: 'Una pagina chiara, credibile e costruita intorno al contatto.' },
-    { title: 'Siti vetrina', audience: 'Per professionisti e piccole attività che hanno bisogno di una casa digitale.', problem: 'Informazioni frammentate tra social, messaggi e materiali diversi.', result: 'Uno spazio ordinato che presenta attività, servizi e modalità di contatto.' },
-    { title: 'Struttura e contenuti digitali', audience: 'Per progetti che hanno già materiali, ma non una narrazione coerente.', problem: 'Testi, immagini e canali che non guidano verso un’azione precisa.', result: 'Una presenza digitale più leggibile e allineata all’identità del progetto.' },
+    {
+      title: 'Presenza digitale, newsletter e AI',
+      audience: 'Per liberi professionisti e piccole attività che vogliono farsi trovare, mantenere un rapporto diretto con i clienti e lavorare in modo più semplice.',
+      problem: 'Una presenza affidata soltanto ai social, comunicazioni discontinue e attività ripetitive gestite ancora manualmente.',
+      result: 'Costruisco la tua presenza online, preparo newsletter utili e integro strumenti AI nei flussi di lavoro. Usati insieme possono darti una marcia in più e aiutarti a distinguerti nei settori in cui una presenza digitale ben organizzata è ancora poco diffusa.',
+      cta: 'Dai una marcia in più alla tua attività →',
+    },
+    {
+      title: 'Menu e cataloghi digitali',
+      audience: 'Per ristoranti, negozi e professionisti che presentano prodotti, piatti o servizi che cambiano nel tempo.',
+      problem: 'Prezzi, disponibilità e informazioni devono essere ripetuti o aggiornati continuamente su canali differenti.',
+      result: 'Realizzo un menu o catalogo digitale chiaro e aggiornabile, consultabile da smartphone, tablet o computer.',
+      cta: 'Raccontami cosa devi mostrare →',
+    },
+    {
+      title: 'Strumenti digitali su misura',
+      audience: 'Per professionisti e piccole attività che perdono tempo in procedure manuali, richieste ripetitive o informazioni difficili da organizzare.',
+      problem: 'Preventivi, appuntamenti, scadenze, entrate e uscite vengono gestiti attraverso messaggi, fogli e strumenti separati.',
+      result: 'Progetto landing page e applicazioni semplici per raccogliere richieste di preventivo, organizzare dati e rendere più pratiche le attività quotidiane.',
+      cta: 'Partiamo dal tuo problema →',
+    },
   ],
   process: [
     ['01', 'Ascolto', 'Partiamo dal problema, dal pubblico e dall’obiettivo reale.'],

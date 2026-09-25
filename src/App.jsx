@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Navigate, Route, Routes, Link } from 'react-router-dom'
-import { FaEnvelope, FaGithub, FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa'
+import { FaEnvelope, FaInstagram, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa'
 import { motion, useReducedMotion } from 'framer-motion'
 import EnglishTeacherPage from './pages/EnglishTeacherPage'
 import MusicProjectPage from './pages/MusicProjectPage'
@@ -77,14 +77,16 @@ function ContactForm() {
       <label className="grid gap-2 text-sm text-zinc-300">Raccontami brevemente cosa vuoi realizzare
         <textarea required rows="5" value={form.project} onChange={(event) => setForm({ ...form, project: event.target.value })} className="resize-y rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none focus:border-violet-400" />
       </label>
-      <button className="rounded-xl bg-violet-500 px-5 py-3 font-semibold text-white transition hover:bg-violet-400">Prepara la richiesta via email</button>
-      <p className="text-xs leading-5 text-zinc-500">Il pulsante apre la tua app email: nessun dato viene salvato dal sito.</p>
+      <button className="rounded-xl bg-violet-500 px-5 py-3 font-semibold text-white transition hover:bg-violet-400">Apri la tua email e invia</button>
+      <p className="text-xs leading-5 text-zinc-500">Il pulsante prepara il messaggio nella tua applicazione email. I dati inseriti non vengono salvati dal sito.</p>
     </form>
   )
 }
 
 function HomePage() {
   const whatsappUrl = siteContent.contact.whatsappNumber ? `https://wa.me/${siteContent.contact.whatsappNumber}` : ''
+  const videoCallMessage = encodeURIComponent('Ciao Alice, vorrei fissare una breve videochiamata per parlarti del mio progetto. Quando saresti disponibile?')
+  const videoCallUrl = whatsappUrl ? `${whatsappUrl}?text=${videoCallMessage}` : ''
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#07090d] px-4 py-6 text-white md:px-8 md:py-10">
       <video autoPlay loop muted playsInline className="fixed inset-0 h-full w-full object-cover opacity-20" aria-hidden="true"><source src="/background.mp4" type="video/mp4" /></video>
@@ -117,14 +119,14 @@ function HomePage() {
           </div>
         </Card>
 
-        <section className="grid gap-6 lg:grid-cols-3" aria-labelledby="servizi-title">
-          <div className="lg:col-span-3"><p className="text-xs uppercase tracking-[0.3em] text-zinc-400">Come posso aiutarti</p><h2 id="servizi-title" className="mt-3 text-3xl font-semibold md:text-4xl">Partiamo dal problema, non dal formato.</h2></div>
+        <section id="servizi" className="grid scroll-mt-6 gap-6 lg:grid-cols-3" aria-labelledby="servizi-title">
+          <div className="lg:col-span-3"><p className="text-xs uppercase tracking-[0.3em] text-zinc-400">Come posso aiutarti</p><h2 id="servizi-title" className="mt-3 text-3xl font-semibold md:text-4xl">Il digitale deve risolvere problemi, non crearne di nuovi.</h2></div>
           {siteContent.services.map((service) => (
             <Card key={service.title} className="flex h-full flex-col">
               <h3 className="text-2xl font-semibold">{service.title}</h3><p className="mt-4 leading-7 text-zinc-300">{service.audience}</p>
               <p className="mt-5 text-sm uppercase tracking-wider text-zinc-500">Problema</p><p className="mt-2 leading-7 text-zinc-300">{service.problem}</p>
               <p className="mt-5 text-sm uppercase tracking-wider text-zinc-500">Risultato</p><p className="mt-2 leading-7 text-zinc-300">{service.result}</p>
-              <a href="#contatti" className="mt-6 font-semibold text-violet-300 hover:text-violet-200">Chiedimi informazioni →</a>
+              <a href="#contatti" className="mt-6 font-semibold text-violet-300 hover:text-violet-200">{service.cta}</a>
             </Card>
           ))}
         </section>
@@ -143,12 +145,56 @@ function HomePage() {
         </section>
 
         <section id="contatti" className="grid scroll-mt-6 gap-6 lg:grid-cols-[0.8fr_1.2fr]">
-          <Card><p className="text-xs uppercase tracking-[0.3em] text-zinc-400">Contatti</p><h2 className="mt-4 text-3xl font-semibold">Hai un’idea o un problema da chiarire?</h2><p className="mt-5 leading-8 text-zinc-300">Scrivimi senza preparare un brief perfetto. Possiamo partire da poche informazioni e capire insieme il passo successivo.</p><p className="mt-5 text-sm text-zinc-400">{siteContent.contact.responseTime}</p>
-            <div className="mt-7 grid gap-3"><a href={`mailto:${siteContent.contact.email}`} className="flex items-center gap-3 rounded-xl bg-white/5 px-4 py-3 hover:bg-white/10"><FaEnvelope /> {siteContent.contact.email}</a>{whatsappUrl && <a href={whatsappUrl} target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded-xl bg-emerald-400/10 px-4 py-3 hover:bg-emerald-400/20"><FaWhatsapp /> Scrivimi su WhatsApp</a>}</div>
-            <div className="mt-7 flex gap-4 text-xl"><a href={siteContent.social.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><FaInstagram /></a><a href={siteContent.social.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><FaLinkedinIn /></a><a href={siteContent.social.github} target="_blank" rel="noreferrer" aria-label="GitHub"><FaGithub /></a></div>
+          <Card><p className="text-xs uppercase tracking-[0.3em] text-zinc-400">Contatti</p><h2 className="mt-4 text-3xl font-semibold">Partiamo da quello che ti fa perdere tempo.</h2><p className="mt-5 leading-8 text-zinc-300">Non devi arrivare con un progetto già pronto o sapere quale tecnologia ti serve. Raccontami come lavori, cosa ti rallenta e cosa vorresti rendere più semplice. Da lì capiremo se posso aiutarti e quale potrebbe essere il primo passo.</p><p className="mt-5 text-sm leading-6 text-zinc-400">{siteContent.contact.responseTime}</p>
+            <div className="mt-7 grid gap-3">
+              <a href={`mailto:${siteContent.contact.email}`} className="flex items-center gap-3 rounded-xl bg-white/5 px-4 py-3 hover:bg-white/10"><FaEnvelope /> <span><strong className="block text-white">Scrivimi via email</strong><span className="text-sm text-zinc-400">{siteContent.contact.email}</span></span></a>
+              {whatsappUrl && <a href={whatsappUrl} target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded-xl bg-emerald-400/10 px-4 py-3 hover:bg-emerald-400/20"><FaWhatsapp /> <strong>Parliamone su WhatsApp</strong></a>}
+              {videoCallUrl && <a href={videoCallUrl} target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded-xl border border-violet-400/20 bg-violet-400/10 px-4 py-3 hover:bg-violet-400/20"><span aria-hidden="true" className="text-lg">◉</span> <span><strong className="block text-white">Richiedi una videochiamata</strong><span className="text-sm text-zinc-400">Concordiamo l’orario e ci incontriamo su Zoom o Google Meet.</span></span></a>}
+            </div>
+            <div className="mt-7 flex gap-4 text-xl"><a href={siteContent.social.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><FaInstagram /></a><a href={siteContent.social.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><FaLinkedinIn /></a></div>
           </Card>
           <Card><ContactForm /></Card>
         </section>
+
+        <section className="relative mt-20 rounded-[28px] border border-white/10 bg-[#14151a]/95 px-6 pb-9 pt-20 text-center md:px-12 md:pb-11" aria-labelledby="author-bio-title">
+          <img
+            src={siteContent.authorBio.photo}
+            alt={`Ritratto di ${siteContent.legalName}`}
+            className="absolute left-1/2 top-0 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-[#14151a] object-cover object-[50%_35%] shadow-2xl ring-1 ring-white/15 md:h-32 md:w-32"
+          />
+          <p className="text-xs uppercase tracking-[0.3em] text-violet-300">La persona dietro il progetto</p>
+          <h2 id="author-bio-title" className="mt-4 text-3xl font-semibold md:text-4xl">{siteContent.authorBio.title}</h2>
+          <div className="mx-auto mt-6 max-w-4xl space-y-4 text-base leading-8 text-zinc-300">
+            {siteContent.authorBio.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          </div>
+          <a href={siteContent.social.linkedin} target="_blank" rel="noreferrer" className="mt-7 inline-flex items-center gap-2 font-semibold text-violet-300 hover:text-violet-200">
+            <FaLinkedinIn /> Conosciamoci anche su LinkedIn →
+          </a>
+        </section>
+
+        <footer className="rounded-[28px] border border-white/10 bg-[#101116]/90 px-6 py-8 md:px-8">
+          <div className="grid gap-8 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
+            <div>
+              <p className="text-xl font-semibold">{siteContent.brand}</p>
+              <p className="mt-3 max-w-sm leading-7 text-zinc-400">Soluzioni digitali per freelance, professionisti e piccole attività.</p>
+              <p className="mt-4 text-sm text-zinc-500">{siteContent.legalName}</p>
+            </div>
+            <nav aria-label="Collegamenti del footer">
+              <p className="text-sm font-semibold text-white">Esplora</p>
+              <div className="mt-3 grid gap-2 text-sm text-zinc-400">
+                <a href="#servizi" className="hover:text-white">Servizi</a>
+                <a href="#progetti" className="hover:text-white">Progetti</a>
+                <a href="#contatti" className="hover:text-white">Contatti</a>
+              </div>
+            </nav>
+            <div>
+              <p className="text-sm font-semibold text-white">Restiamo in contatto</p>
+              <a href={`mailto:${siteContent.contact.email}`} className="mt-3 block break-all text-sm text-zinc-400 hover:text-white">{siteContent.contact.email}</a>
+              <div className="mt-4 flex gap-4 text-lg"><a href={siteContent.social.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><FaInstagram /></a><a href={siteContent.social.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><FaLinkedinIn /></a></div>
+            </div>
+          </div>
+          <div className="mt-8 border-t border-white/10 pt-5 text-xs text-zinc-500">© 2026 {siteContent.brand}</div>
+        </footer>
       </main>
     </div>
   )
