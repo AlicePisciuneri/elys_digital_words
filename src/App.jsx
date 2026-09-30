@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import EnglishTeacherPage from './pages/EnglishTeacherPage'
 import MusicProjectPage from './pages/MusicProjectPage'
 import { siteContent } from './content/siteContent'
+import ReviewsSection from './components/reviews/ReviewsSection'
 
 const toneClasses = {
   violet: 'border-violet-400/20 bg-violet-400/10',
@@ -144,6 +145,8 @@ function HomePage() {
           })}</div>
         </section>
 
+        <ReviewsSection />
+
         <section id="contatti" className="grid scroll-mt-6 gap-6 lg:grid-cols-[0.8fr_1.2fr]">
           <Card><p className="text-xs uppercase tracking-[0.3em] text-zinc-400">Contatti</p><h2 className="mt-4 text-3xl font-semibold">Partiamo da quello che ti fa perdere tempo.</h2><p className="mt-5 leading-8 text-zinc-300">Non devi arrivare con un progetto già pronto o sapere quale tecnologia ti serve. Raccontami come lavori, cosa ti rallenta e cosa vorresti rendere più semplice. Da lì capiremo se posso aiutarti e quale potrebbe essere il primo passo.</p><p className="mt-5 text-sm leading-6 text-zinc-400">{siteContent.contact.responseTime}</p>
             <div className="mt-7 grid gap-3">
@@ -205,3 +208,4 @@ function App() {
 }
 
 export default App
+
