@@ -46,11 +46,19 @@ export const siteContent = {
   },
   services: [
     {
-      title: 'Presenza digitale, newsletter e AI',
-      audience: 'Per liberi professionisti e piccole attività che vogliono farsi trovare, mantenere un rapporto diretto con i clienti e lavorare in modo più semplice.',
-      problem: 'Una presenza affidata soltanto ai social, comunicazioni discontinue e attività ripetitive gestite ancora manualmente.',
-      result: 'Costruisco la tua presenza online, preparo newsletter utili e integro strumenti AI nei flussi di lavoro. Usati insieme possono darti una marcia in più e aiutarti a distinguerti nei settori in cui una presenza digitale ben organizzata è ancora poco diffusa.',
-      cta: 'Dai una marcia in più alla tua attività →',
+      title: 'Identità digitale completa per professionisti',
+      audience: 'Per liberi professionisti che vogliono presentare servizi e prezzi in modo chiaro, farsi contattare e ricevere prenotazioni online.',
+      problem: 'Bio, servizi, prezzi e disponibilità sono spesso sparsi tra social, messaggi e strumenti diversi.',
+      result: 'Creo una landing page con bio, servizi, prezzi, modulo di contatto e recensioni. Collego gli strumenti utili per gestire prenotazioni e contatti, la newsletter e i profili social. Strumenti e attività si concordano insieme. La gestione mensile di newsletter e contenuti social è disponibile come opzione.',
+      cta: 'Costruiamo la tua presenza digitale →',
+      featured: true,
+    },
+    {
+      title: 'Newsletter e social, gestione mensile',
+      audience: 'Per chi ha già impostato la propria presenza digitale e vuole mantenerla attiva nel tempo.',
+      problem: 'Newsletter e profili social rischiano di fermarsi quando mancano tempo e continuità.',
+      result: 'Se vuoi, posso occuparmi della preparazione e pubblicazione di contenuti social e newsletter con un piano mensile concordato insieme.',
+      cta: 'Parliamo della gestione mensile →',
     },
     {
       title: 'Menu e cataloghi digitali',
@@ -58,13 +66,6 @@ export const siteContent = {
       problem: 'Prezzi, disponibilità e informazioni devono essere ripetuti o aggiornati continuamente su canali differenti.',
       result: 'Realizzo un menu o catalogo digitale chiaro e aggiornabile, consultabile da smartphone, tablet o computer.',
       cta: 'Raccontami cosa devi mostrare →',
-    },
-    {
-      title: 'Strumenti digitali su misura',
-      audience: 'Per professionisti e piccole attività che perdono tempo in procedure manuali, richieste ripetitive o informazioni difficili da organizzare.',
-      problem: 'Preventivi, appuntamenti, scadenze, entrate e uscite vengono gestiti attraverso messaggi, fogli e strumenti separati.',
-      result: 'Progetto landing page e applicazioni semplici per raccogliere richieste di preventivo, organizzare dati e rendere più pratiche le attività quotidiane.',
-      cta: 'Partiamo dal tuo problema →',
     },
   ],
   process: [
@@ -76,6 +77,5 @@ export const siteContent = {
   projects: [
     { title: 'Vendita di brani royalty-free', description: 'Strategia dei contenuti e percorso digitale per un catalogo musicale.', href: '/music-project', status: 'Caso studio disponibile', tone: 'fuchsia', available: true },
     { title: 'Landing page per insegnante di inglese', description: 'Un progetto orientato a chiarezza, fiducia e contatto.', href: '/english-teacher', status: 'In fase di realizzazione', tone: 'violet', available: false },
-    { title: 'Sito per attività agricola', description: 'Spazio riservato al progetto attualmente in attesa di sviluppo.', href: '/agricultural-site', status: 'In attesa', tone: 'cyan', available: false },
   ],
 }

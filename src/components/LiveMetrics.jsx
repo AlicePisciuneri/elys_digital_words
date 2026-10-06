@@ -28,7 +28,7 @@ export default function LiveMetrics({ metrics }) {
                     </h3>
 
                     <p>
-                        Account raggiunti: {metrics.instagram.reachedAccounts}
+                        Account raggiunti nel progetto: {metrics.instagram.reachedAccounts}
                     </p>
                 </div>
 
@@ -38,14 +38,14 @@ export default function LiveMetrics({ metrics }) {
                     </h3>
 
                     <p>
-                        Visite: {metrics.website.visits}
+                        Visite nel progetto: {metrics.website.visits}
                     </p>
                 </div>
 
             </div>
 
             <p className="mt-6 text-sm text-zinc-500">
-                Ultimo aggiornamento: {metrics.lastUpdate}
+                Data della rilevazione finale: {metrics.lastUpdate}
             </p>
         </section>
     );

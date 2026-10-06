@@ -120,16 +120,19 @@ function HomePage() {
           </div>
         </Card>
 
-        <section id="servizi" className="grid scroll-mt-6 gap-6 lg:grid-cols-3" aria-labelledby="servizi-title">
-          <div className="lg:col-span-3"><p className="text-xs uppercase tracking-[0.3em] text-zinc-400">Come posso aiutarti</p><h2 id="servizi-title" className="mt-3 text-3xl font-semibold md:text-4xl">Il digitale deve risolvere problemi, non crearne di nuovi.</h2></div>
+        <section id="servizi" className="scroll-mt-6" aria-labelledby="servizi-title">
+          <p className="text-xs uppercase tracking-[0.3em] text-zinc-400">Come posso aiutarti</p><h2 id="servizi-title" className="mt-3 text-3xl font-semibold md:text-4xl">Il digitale deve risolvere problemi, non crearne di nuovi.</h2>
+          <div className="mt-6 grid gap-6 lg:grid-cols-2">
           {siteContent.services.map((service) => (
-            <Card key={service.title} className="flex h-full flex-col">
-              <h3 className="text-2xl font-semibold">{service.title}</h3><p className="mt-4 leading-7 text-zinc-300">{service.audience}</p>
+            <Card key={service.title} className={`flex h-full flex-col ${service.featured ? 'lg:row-span-2 lg:justify-center lg:p-8 lg:ring-1 lg:ring-violet-400/30' : ''}`}>
+              {service.featured && <p className="mb-3 text-xs uppercase tracking-[0.2em] text-violet-300">Servizio principale</p>}
+              <h3 className={`font-semibold ${service.featured ? 'text-3xl' : 'text-2xl'}`}>{service.title}</h3><p className="mt-4 leading-7 text-zinc-300">{service.audience}</p>
               <p className="mt-5 text-sm uppercase tracking-wider text-zinc-500">Problema</p><p className="mt-2 leading-7 text-zinc-300">{service.problem}</p>
               <p className="mt-5 text-sm uppercase tracking-wider text-zinc-500">Risultato</p><p className="mt-2 leading-7 text-zinc-300">{service.result}</p>
               <a href="#contatti" className="mt-6 font-semibold text-violet-300 hover:text-violet-200">{service.cta}</a>
             </Card>
           ))}
+          </div>
         </section>
 
         <Card><p className="text-xs uppercase tracking-[0.3em] text-zinc-400">Come lavoro</p><div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-4">

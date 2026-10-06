@@ -82,13 +82,16 @@ function MusicProjectPage() {
             <p className="text-xs uppercase tracking-[0.3em] text-zinc-500">Risultati</p>
             <h2 className="mt-4 text-3xl font-semibold">Una presenza digitale capace di generare attenzione.</h2>
             <p className="mt-5 leading-8 text-zinc-300">
-              I dati fotografano la crescita raggiunta dal progetto nel periodo indicato. Le metriche mostrano visualizzazioni, persone raggiunte e visite al sito, senza trasformarle in risultati di vendita non verificati.
+              Il progetto è partito da zero. I dati qui sotto sono rilevazioni storiche raccolte durante la collaborazione e non rappresentano statistiche aggiornate a oggi. YouTube riporta le finestre degli ultimi 60 giorni e delle ultime 48 ore; Instagram e sito mostrano i risultati registrati nel periodo del progetto.
             </p>
             <LiveMetrics metrics={projectMetrics} />
           </div>
-          <div className="overflow-hidden rounded-[28px] border border-white/10 bg-[#14151a] p-4">
-            <img src="/youtube-analytics.png" alt="Dati YouTube del progetto Madhatterrecords" className="h-full w-full rounded-2xl object-contain" />
-          </div>
+          <figure className="overflow-hidden rounded-[28px] border border-white/10 bg-[#14151a] p-4">
+            <img src="/youtube-analytics.png" alt="Screenshot di YouTube Analytics del progetto Madhatterrecords" className="h-full w-full rounded-2xl object-contain" />
+            <figcaption className="px-2 pt-3 text-sm leading-6 text-zinc-400">
+              La schermata mostra una finestra di 28 giorni fino a giugno; il riepilogo accanto riporta i dati rilevati il 7 luglio 2026.
+            </figcaption>
+          </figure>
         </section>
 
         <section className="mb-20 grid items-center gap-10 rounded-[28px] border border-white/10 bg-[#14151a] p-6 md:p-9 lg:grid-cols-[1fr_1.1fr]">
