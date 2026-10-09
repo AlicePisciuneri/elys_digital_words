@@ -1,11 +1,12 @@
 export const siteContent = {
-  brand: 'Alice.DigitalWords',
-  legalName: 'Alice Pisciuneri',
+  brand: 'Elys Digital Words',
   profile: {
-    eyebrow: 'Soluzioni digitali per freelance, professionisti e piccole attività',
-    name: 'Alice.DigitalWords',
-    headline: 'Il tuo lavoro è già complicato.\nIl digitale non dovrebbe esserlo.',
-    description: 'Ascolto come funziona la tua attività e costruisco web app e strumenti digitali che ti semplificano davvero il lavoro. Meno operazioni ripetitive, meno tempo perso e qualche pausa caffè in più. Te la sei meritata.',
+    eyebrow: 'Web · contenuti · identità digitale',
+    name: 'Alice Pisciuneri',
+    role: 'Frontend developer e progettista di contenuti digitali',
+    headline: 'Progetto spazi digitali che rendono più chiara un’offerta e più semplice il primo contatto.',
+    description: 'Unisco sviluppo frontend, struttura dei contenuti e sensibilità editoriale per aiutare freelance, professionisti e piccole attività a presentarsi online con maggiore coerenza.',
+    education: 'Formazione in sviluppo web con Boolean e un percorso costruito attraverso progetti reali tra React, contenuti e comunicazione digitale.',
     // Inserisci qui il percorso della futura foto, per esempio: '/alice-professionale.jpg'.
     // Lascia una stringa vuota per mantenere la testata senza immagine.
     photo: '/alice-professionale.png',
@@ -14,30 +15,11 @@ export const siteContent = {
       { src: '/hero-wireframe.png', alt: 'Progettazione di una pagina su quaderno' },
     ],
   },
-  about: {
-    title: 'Prima di costruire, ascolto.',
-    paragraphs: [
-      'Per vent’anni ho gestito punti vendita nella grande distribuzione. Ho imparato da vicino cosa significa far funzionare un’attività ogni giorno e quali problemi pratici possono rallentare il lavoro.',
-      'Negli ultimi due anni ho unito questa esperienza alla mia passione per lo sviluppo web, realizzando decine di siti, applicazioni e progetti digitali.',
-      'Prima di iniziare, però, voglio ascoltarti: capire come funziona la tua attività, cosa ti serve davvero e quali ostacoli incontri. Solo dopo progetto uno strumento digitale pensato per rendere il tuo lavoro più semplice.',
-      'A completare questo percorso ci sono l’esperienza nella scrittura e nella gestione dei social, insieme a una formazione in marketing.',
-    ],
-    closing: 'L’obiettivo? Rendere il digitale un alleato concreto per chi, ogni giorno, manda avanti la propria attività.',
-  },
-  authorBio: {
-    title: 'Chi c’è dietro Alice.DigitalWords?',
-    photo: '/alice-bio.png',
-    paragraphs: [
-      'Mi chiamo Alice Pisciuneri. Per vent’anni ho gestito punti vendita nella grande distribuzione: un’esperienza che mi ha insegnato cosa significa far funzionare ogni giorno un’attività, coordinare persone e affrontare problemi molto concreti.',
-      'Negli ultimi due anni ho trasformato la mia passione per il digitale in nuove competenze, completando un percorso professionale in sviluppo web e superando gli esami finali. Ho approfondito anche l’intelligenza artificiale applicata al lavoro con Tech Academy Italia – AI Upskilling.',
-      'Prima del codice ci sono state le parole: ho scritto per network e collettivi editoriali, gestito pagine social e studiato marketing. Quando non sto progettando qualcosa, probabilmente sto leggendo, ascoltando musica, guardando una montagna o cercando di bere quel famoso caffè prima che diventi freddo.',
-    ],
-  },
   contact: {
     email: 'alice.digitalwords@gmail.com',
     // Inserisci il numero completo di prefisso internazionale, senza spazi.
     whatsappNumber: '393356854905',
-    responseTime: 'Di solito rispondo entro 1–2 giorni lavorativi. Il tempo di finire il caffè e leggere tutto con attenzione.',
+    responseTime: 'Rispondo normalmente entro 1–2 giorni lavorativi.',
   },
   social: {
     instagram: 'https://www.instagram.com/elysinbookland',
@@ -45,28 +27,9 @@ export const siteContent = {
     github: 'https://github.com/AlicePisciuneri',
   },
   services: [
-    {
-      title: 'Identità digitale completa per professionisti',
-      audience: 'Per liberi professionisti che vogliono presentare servizi e prezzi in modo chiaro, farsi contattare e ricevere prenotazioni online.',
-      problem: 'Bio, servizi, prezzi e disponibilità sono spesso sparsi tra social, messaggi e strumenti diversi.',
-      result: 'Creo una landing page con bio, servizi, prezzi, modulo di contatto e recensioni. Collego gli strumenti utili per gestire prenotazioni e contatti, la newsletter e i profili social. Strumenti e attività si concordano insieme. La gestione mensile di newsletter e contenuti social è disponibile come opzione.',
-      cta: 'Costruiamo la tua presenza digitale →',
-      featured: true,
-    },
-    {
-      title: 'Newsletter e social, gestione mensile',
-      audience: 'Per chi ha già impostato la propria presenza digitale e vuole mantenerla attiva nel tempo.',
-      problem: 'Newsletter e profili social rischiano di fermarsi quando mancano tempo e continuità.',
-      result: 'Se vuoi, posso occuparmi della preparazione e pubblicazione di contenuti social e newsletter con un piano mensile concordato insieme.',
-      cta: 'Parliamo della gestione mensile →',
-    },
-    {
-      title: 'Menu e cataloghi digitali',
-      audience: 'Per ristoranti, negozi e professionisti che presentano prodotti, piatti o servizi che cambiano nel tempo.',
-      problem: 'Prezzi, disponibilità e informazioni devono essere ripetuti o aggiornati continuamente su canali differenti.',
-      result: 'Realizzo un menu o catalogo digitale chiaro e aggiornabile, consultabile da smartphone, tablet o computer.',
-      cta: 'Raccontami cosa devi mostrare →',
-    },
+    { title: 'Landing page', audience: 'Per chi deve presentare un servizio o una proposta specifica.', problem: 'Un’offerta valida che online risulta dispersiva o difficile da capire.', result: 'Una pagina chiara, credibile e costruita intorno al contatto.' },
+    { title: 'Siti vetrina', audience: 'Per professionisti e piccole attività che hanno bisogno di una casa digitale.', problem: 'Informazioni frammentate tra social, messaggi e materiali diversi.', result: 'Uno spazio ordinato che presenta attività, servizi e modalità di contatto.' },
+    { title: 'Struttura e contenuti digitali', audience: 'Per progetti che hanno già materiali, ma non una narrazione coerente.', problem: 'Testi, immagini e canali che non guidano verso un’azione precisa.', result: 'Una presenza digitale più leggibile e allineata all’identità del progetto.' },
   ],
   process: [
     ['01', 'Ascolto', 'Partiamo dal problema, dal pubblico e dall’obiettivo reale.'],
@@ -77,5 +40,6 @@ export const siteContent = {
   projects: [
     { title: 'Vendita di brani royalty-free', description: 'Strategia dei contenuti e percorso digitale per un catalogo musicale.', href: '/music-project', status: 'Caso studio disponibile', tone: 'fuchsia', available: true },
     { title: 'Landing page per insegnante di inglese', description: 'Un progetto orientato a chiarezza, fiducia e contatto.', href: '/english-teacher', status: 'In fase di realizzazione', tone: 'violet', available: false },
+    { title: 'Sito per attività agricola', description: 'Spazio riservato al progetto attualmente in attesa di sviluppo.', href: '/agricultural-site', status: 'In attesa', tone: 'cyan', available: false },
   ],
 }

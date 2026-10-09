@@ -1,52 +1,19 @@
 
+
 export default function LiveMetrics({ metrics }) {
     return (
-        <section className="mt-10">
-            <h2 className="mb-6 text-2xl font-semibold text-violet-300">
-                Risultati registrati
-            </h2>
+        <section>
+            <h2>Live Metrics</h2>
 
-            <div className="grid gap-6 md:grid-cols-3">
+            <h3>YouTube</h3>
+            <p>Visualizzazioni (ultimi 60 giorni): {metrics.youtube.viewslast60Days}</p>
+            <p>Visualizzazioni (48 ore): {metrics.youtube.viewslast48Hours}</p>
 
-                <div>
-                    <h3 className="mb-2 text-lg font-semibold">
-                        YouTube
-                    </h3>
+            <h3>Instagram</h3>
+            <p>Account raggiunti: {metrics.instagram.reachedAccounts}</p>
 
-                    <p>
-                        Ultimi 60 giorni: {metrics.youtube.viewslast60Days}
-                    </p>
-
-                    <p>
-                        Ultime 48 ore: {metrics.youtube.viewslast48Hours}
-                    </p>
-                </div>
-
-                <div>
-                    <h3 className="mb-2 text-lg font-semibold">
-                        Instagram
-                    </h3>
-
-                    <p>
-                        Account raggiunti nel progetto: {metrics.instagram.reachedAccounts}
-                    </p>
-                </div>
-
-                <div>
-                    <h3 className="mb-2 text-lg font-semibold">
-                        Sito Web
-                    </h3>
-
-                    <p>
-                        Visite nel progetto: {metrics.website.visits}
-                    </p>
-                </div>
-
-            </div>
-
-            <p className="mt-6 text-sm text-zinc-500">
-                Data della rilevazione finale: {metrics.lastUpdate}
-            </p>
+            <h3>Sito Web</h3>
+            <p>Visite: {metrics.website.visits}</p>
         </section>
     );
 }
