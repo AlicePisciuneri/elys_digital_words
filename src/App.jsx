@@ -77,7 +77,7 @@ function HomePage() {
       <section className="relative bg-[#f7f5f2] px-6 py-16 text-[#241b2b] md:px-12 md:py-24" aria-labelledby="mission-title">
         <div className="mx-auto max-w-5xl text-center">
           <h2 id="mission-title" className="mt-6 text-3xl font-medium leading-snug md:text-5xl md:leading-tight">
-            Ti aiuto a costruire una presenza digitale che racconta davvero chi sei, unendo strategia, contenuti e sviluppo web in un progetto su misura.
+            Che tu sia fotografo, scrittore, musicista o abbia un’attività tutta tua, progetto la tua presenza digitale per raccontare davvero chi sei.
           </h2>
         </div>
       </section>
