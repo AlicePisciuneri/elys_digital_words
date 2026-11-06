@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://elys-digital-words.vercel.app/sitemap.xml

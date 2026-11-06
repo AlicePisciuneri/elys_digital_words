@@ -1,45 +1,71 @@
 export const siteContent = {
-  brand: 'Elys Digital Words',
+  brand: 'Alice.DigitalWords',
+  legalName: 'Alice Pisciuneri',
   profile: {
-    eyebrow: 'Web · contenuti · identità digitale',
-    name: 'Alice Pisciuneri',
-    role: 'Frontend developer e progettista di contenuti digitali',
-    headline: 'Progetto spazi digitali che rendono più chiara un’offerta e più semplice il primo contatto.',
-    description: 'Unisco sviluppo frontend, struttura dei contenuti e sensibilità editoriale per aiutare freelance, professionisti e piccole attività a presentarsi online con maggiore coerenza.',
-    education: 'Formazione in sviluppo web con Boolean e un percorso costruito attraverso progetti reali tra React, contenuti e comunicazione digitale.',
-    // Inserisci qui il percorso della futura foto, per esempio: '/alice-professionale.jpg'.
-    // Lascia una stringa vuota per mantenere la testata senza immagine.
+    headline: 'Il tuo lavoro merita uno spazio all’altezza.',
+    description: 'Ascolto le tue idee e le trasformo in una presenza digitale che parla con la tua voce.',
+  },
+  about: {
+    title: 'Ciao, sono Alice.',
     photo: '/alice-professionale.png',
-    supportingImages: [
-      { src: '/hero-laptop.png', alt: 'Postazione di lavoro con portatile' },
-      { src: '/hero-wireframe.png', alt: 'Progettazione di una pagina su quaderno' },
+    paragraphs: [
+      '20 anni di lavoro a contatto con le persone, le loro esigenze e le loro storie.',
+      'Alla scrittura, che mi accompagna da sempre, ho affiancato lo sviluppo web e la comunicazione digitale.',
+      'Oggi unisco queste competenze per aiutarti a raccontare davvero chi sei.',
+      'Ascolto, progetto e costruisco insieme a te, con attenzione ai dettagli e obiettivi chiari.',
+      'Resto al tuo fianco per aiutarti a crescere.',
     ],
   },
   contact: {
     email: 'alice.digitalwords@gmail.com',
-    // Inserisci il numero completo di prefisso internazionale, senza spazi.
-    whatsappNumber: '393356854905',
-    responseTime: 'Rispondo normalmente entro 1–2 giorni lavorativi.',
   },
   social: {
-    instagram: 'https://www.instagram.com/elysinbookland',
     linkedin: 'https://www.linkedin.com/in/alice-pisciuneri/',
+    instagram: 'https://www.instagram.com/elysinbookland',
     github: 'https://github.com/AlicePisciuneri',
   },
-  services: [
-    { title: 'Landing page', audience: 'Per chi deve presentare un servizio o una proposta specifica.', problem: 'Un’offerta valida che online risulta dispersiva o difficile da capire.', result: 'Una pagina chiara, credibile e costruita intorno al contatto.' },
-    { title: 'Siti vetrina', audience: 'Per professionisti e piccole attività che hanno bisogno di una casa digitale.', problem: 'Informazioni frammentate tra social, messaggi e materiali diversi.', result: 'Uno spazio ordinato che presenta attività, servizi e modalità di contatto.' },
-    { title: 'Struttura e contenuti digitali', audience: 'Per progetti che hanno già materiali, ma non una narrazione coerente.', problem: 'Testi, immagini e canali che non guidano verso un’azione precisa.', result: 'Una presenza digitale più leggibile e allineata all’identità del progetto.' },
-  ],
-  process: [
-    ['01', 'Ascolto', 'Partiamo dal problema, dal pubblico e dall’obiettivo reale.'],
-    ['02', 'Struttura', 'Definisco priorità, contenuti e percorso della pagina.'],
-    ['03', 'Realizzazione', 'Costruisco e rifinisco l’esperienza su desktop e mobile.'],
-    ['04', 'Consegna', 'Ricevi il progetto, gli accessi e indicazioni chiare per gestirlo.'],
-  ],
-  projects: [
-    { title: 'Vendita di brani royalty-free', description: 'Strategia dei contenuti e percorso digitale per un catalogo musicale.', href: '/music-project', status: 'Caso studio disponibile', tone: 'fuchsia', available: true },
-    { title: 'Landing page per insegnante di inglese', description: 'Un progetto orientato a chiarezza, fiducia e contatto.', href: '/english-teacher', status: 'In fase di realizzazione', tone: 'violet', available: false },
-    { title: 'Sito per attività agricola', description: 'Spazio riservato al progetto attualmente in attesa di sviluppo.', href: '/agricultural-site', status: 'In attesa', tone: 'cyan', available: false },
+  solutions: [
+    {
+      number: '01',
+      label: 'Chiarezza',
+      title: 'Chi ti scopre capisce subito cosa fai',
+      description: 'Quando bio, lavori e link sono sparsi, è difficile raccontarsi. Li organizziamo in uno spazio chiaro che parla del tuo lavoro e valorizza le tue creazioni.',
+      points: [
+        'Chi sei e cosa fai si capisce subito.',
+        'Immagini, parole, musica e video hanno uno spazio adatto.',
+        'Le persone sanno come seguirti e contattarti.',
+      ],
+      accent: 'text-violet-300',
+      glow: 'bg-violet-500/15',
+      dot: 'bg-violet-300',
+    },
+    {
+      number: '02',
+      label: 'Opportunità',
+      title: 'Le occasioni non si perdono tra i messaggi',
+      description: 'Chi vuole acquistare, chiederti una commissione, invitarti a un evento o collaborare con te trova un modo semplice per farsi avanti.',
+      points: [
+        'Le richieste arrivano nel posto giusto.',
+        'Acquisti, booking e collaborazioni hanno un percorso chiaro.',
+        'Un modulo raccoglie le informazioni utili fin dal primo contatto.',
+      ],
+      accent: 'text-cyan-300',
+      glow: 'bg-cyan-500/15',
+      dot: 'bg-cyan-300',
+    },
+    {
+      number: '03',
+      label: 'Tempo',
+      title: 'Il digitale ti lascia più tempo per creare',
+      description: 'Tenere insieme sito, social e newsletter richiede tempo. Colleghiamo gli strumenti utili e rendiamo più semplice seguirli.',
+      points: [
+        'I tuoi canali rimandano a uno spazio digitale ordinato.',
+        'Social e newsletter possono restare attivi con un piano concordato.',
+        'La gestione mensile dei contenuti è disponibile come opzione.',
+      ],
+      accent: 'text-rose-300',
+      glow: 'bg-rose-500/15',
+      dot: 'bg-rose-300',
+    },
   ],
 }
