@@ -116,10 +116,12 @@ export default function App() {
       <footer className="bg-[#07090d] px-6 py-7 text-white md:px-8">
         <div className="mx-auto flex max-w-6xl flex-col gap-5 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm text-zinc-400">© 2026 {siteContent.brand}</p>
-          <nav aria-label="Profili social" className="flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-zinc-300">
+          <nav aria-label="Profili social e informative legali" className="flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-zinc-300">
             <a href={siteContent.social.linkedin} target="_blank" rel="noreferrer" className="transition hover:text-white">LinkedIn</a>
             <a href={siteContent.social.instagram} target="_blank" rel="noreferrer" className="transition hover:text-white">Instagram</a>
             <a href={siteContent.social.github} target="_blank" rel="noreferrer" className="transition hover:text-white">GitHub</a>
+            <a href="https://www.iubenda.com/privacy-policy/59930764" className="iubenda-white iubenda-noiframe iubenda-embed transition hover:text-white" title="Privacy Policy">Privacy Policy</a>
+            <a href="https://www.iubenda.com/privacy-policy/59930764/cookie-policy" className="iubenda-white iubenda-noiframe iubenda-embed transition hover:text-white" title="Cookie Policy">Cookie Policy</a>
           </nav>
         </div>
       </footer>
